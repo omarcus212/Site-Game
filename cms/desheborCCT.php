@@ -43,29 +43,53 @@
         <table id="tblConsulta" >
             <tr>
                 <td id="tblTitulo" colspan="6">
-                    <h1> Consulta de Dados.</h1>
+                    <h1> Consulta de Dados</h1>
                 </td>
             </tr>
             <tr id="tblLinhas">
-                <td class="tblColunas destaque"> Nome </td>
-                <td class="tblColunas destaque"> Email </td>
-                <td class="tblColunas destaque">  </td>
+                <td class="tblColunas destaque" id="caixanome"> Nome </td>
+                <td class="tblColunas destaque" id="caixaemail"> Email </td>
+                <td class="tblColunas destaque" id="caixaobs"> obeservação </td>
+                <td class="tblColunas destaque" id="caixanada">  </td>
                 
                 
             </tr>
-            
+             
+           <?php
+              require_once('controller/controllerContatos.php');
+              $listcontatos = listarcontatos();
+
+              foreach($listcontatos as $item){
+
+             
+           
+           ?>
            
             <tr id="tblLinhas">
-                <td class="tblColunas registros"></td>
-                <td class="tblColunas registros"></td>
+                <td class="tblColunas registros"><?=$item['Nome']?></td>
+                <td class="tblColunas registros"><?=$item['Email']?></td>
+                <td class="tblColunas registros"><?=$item['Obs']?></td>
                 
                
                 <td class="tblColunas registros">
                         <img src="img/edit.png" alt="Editar" title="Editar" class="editar">
+
+                        <a onclick="return confirm('Tem certeza que deseja excluir?')" href="router.php?componente=contatos&action=deletar&id=<?=$item['id']?>">
                         <img src="img/trash.png" alt="Excluir" title="Excluir" class="excluir">
+                        </a>
+
                         <img src="img/search.png" alt="Visualizar" title="Visualizar" class="pesquisar">
                 </td>
             </tr>
+
+
+              <?php
+                 }
+              ?>
+
+
+
+
         </table>
     </div>
     </main>
