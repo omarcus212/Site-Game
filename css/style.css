@@ -1,0 +1,26 @@
+*{
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+main{
+padding-left: 5%;
+padding-right: 5%;
+background-color: #171717;
+
+}
+
+#sobra2,#sobra3,#sobra4
+{
+    height: 100px;
+}
+
+#sobra1{
+    height: 40px;
+}
+

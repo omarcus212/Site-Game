@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="./js/main.js" defer></script>
+    <script src="./js/header.js" defer></script>
+    <title>Seu Gamer</title>
+</head>
+
+<body>
+    <header>
+        <div id="drop-todomenu">
+            <span id="nome-site">
+                 Seu 
+                 Gamer
+            </span>
+
+            <div id="drop-menu">
+                <nav id="drrp-menu">
+                    <ul>
+                        <li>
+                            <a href="#sobra2">Produtos</a>
+                            <a href="#sobra1">Promoção</a>
+                            <a href="#sobra3">Destaques</a>
+                            <a href="#sobra4">Sobre</a>
+                            <a href="#contatos">Contatos</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div id="minhabarra">
+                <div>
+                    <input type="search">
+                </div>
+                <span>
+                    <a href="https://poki.com.br/g/infinite-mario"><img src="./imgs/lupa.png" alt=""
+                            id="img-pesquisa"></a>
+                </span>
+                <span id="menu-burgue">
+                    <img src="./imgs/barra-de-menu.png" alt="" id="menu-img">
+                </span>
+
+            </div>
+        </div>
+        <div id="banner">
+            <a href=""><img src="./imgs/warzone2.jpg " alt="" id="slidebanner"></a>
+        </div>
+
+        <div class="slide-radio">
+            <input type="radio" id="radio1" name="rdt" aria-selected="true">
+            <input type="radio" id="radio2" name="rdt">
+            <input type="radio" id="radio3" name="rdt">
+            <input type="radio" id="radio4" name="rdt">
+        </div>
+
+
+        <div class="meu-slide-manual">
+            <label for="radio1" class="manual-slide"></label>
+            <label for="radio2" class="manual-slide"></label>
+            <label for="radio3" class="manual-slide"></label>
+            <label for="radio4" class="manual-slide"></label>
+        </div>
+    </header>
+
+
+
+    <main>
+        <!-- menu-burgue -->
+
+        <div id="modal-container">
+            <div class="modal-content">
+                <span id="modal-sair"> sair </span>
+                <header>
+                    <h1>Seu</h1>
+                    <h1>Gamer</h1>
+
+                </header>
+                <p>Categorias</p>
+                <nav id="nav-menuzinho">
+                    <ul>
+                        <li><a href="" id="acao-catego">Ação</a></li>
+                        <li><a href="" id="avn-catego">Aventura</a></li>
+                        <li><a href="" id="rpg-catego">RPG</a></li>
+                        <li><a href="" id="corrida-catego">Corrida</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <!-- section promocao -->
+        <div id="sobra1"></div>
+        <section id="promocao">
+            <div id="barra-yallow-promocao"></div>
+            <span id="title-promocao">
+                Super Promoções 
+            </span>
+            <div id="barra-yallow-promocao"></div>
+
+            <div class="div-promocao"></div>
+                         
+        </section>
+
+
+
+
+
+        <!-- section produtos -->
+        <div id="sobra2"></div>
+        <section id="produtos">
+            <div id="barra-yallow-produtos"></div>
+
+            <span id="title-produto">
+                Game Produtos
+            </span>
+
+            <div id="barra-yallow"></div>
+            <div id="div-produtos"></div>
+
+
+        </section>
+
+        <!--  detalhes-modal -->
+        <div class="detalhes-modal"></div>
+      
+
+        <!-- section destaques -->
+        <div id="sobra3"></div>
+        <section id="destaques">
+            <span id="title-destaques">
+                <p>Destaques</p>
+            </span>
+            <div id="div-destaques"></div>
+
+          <!-- id sempre é bom usar ele de maneira unica -->
+
+        </section>
+
+        <!-- section sobre -->
+        <div id="sobra4"></div>
+        <section id="sobre">
+            <span id="title-sobre">
+                Mais...
+            </span>
+            <img src="/imgs/god of war.png" alt="">
+            <span id="texto-quemsomo">
+                <p class="quem-somos">Quem Somos</p>
+                 O Seu-Game Informática é uma empresa que trabalha com os mais variados produtos, atuando
+                    principalmente no setor de informática e equipamentos eletrônicos em geral, área bastante
+                    competitiva e em constante crescimento, onde qualidade, variedade, garantia e eficiência são
+                    critérios importantíssimos para total satisfação, confiança e preferência de nossos consumidores.
+                    Além do nosso e-commerce possuímos uma loja física situada em SP/Jandira, onde temos a variedade de
+                    nosso site ao gosto dos mais exigentes clientes. Oferecemos não apenas a comodidade da compra
+                    online, mas também o tratamento olho no olho que muitos preferem e sempre confiam.
+                    Procuramos acima de tudo oferecer o que há de melhor, os melhores fornecedores, os mais atualizados
+                    produtos, o mais atencioso dos atendimentos, juntamente com os preços mais competitivos e atraentes
+                    do mercado para que nosso público encontre não apenas variedade e qualidade, mas também uma empresa
+                    que se preocupa com a felicidade e total satisfação de seus clientes e por que não, amigos!
+                    Além de nosso site, visite também nossa loja estamos a sua espera!
+            </span>
+        </section>
+    </main>
+
+    <footer>
+        <div id="contatos">
+           
+                <h1>
+                    CONTATOS
+                </h1>
+          
+
+            <div>
+                <form action="contatos" method="post">
+                    <div class="caixadecnt">
+                        <h3>nome:</h3><input type="text">
+                        <h3>email:</h3><input type="text">
+                    </div>
+                    <h2>OBS:</h2> <textarea name="txtarea" id="areaobs" cols="30" rows="10" maxlength="300"></textarea>
+                </form>
+                <input type="submit" value="enviar" name="bntenviar" id="btnemviar-contatos">
+            </div>
+
+            <div id="finalsitecnt">
+                marcus | lyout2022 | contatos: 91099-91098 | email:seugamer@gmail.com
+            </div>
+        </div>
+    </footer>
+       
+   
+    
+
+
+</body>
+
+</html>
