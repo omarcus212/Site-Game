@@ -21,6 +21,11 @@
     color: #ffffff;
     text-align: center;
     font-size: 1.6em;
+    
+}
+
+
+#tblTitulo h1{
     margin: auto;
 }
 #tblLinhas{
@@ -39,6 +44,7 @@
     
 }
 
+#caixaCategoria,
 #caixanome,
 #caixaemail,
 #caixaobs,

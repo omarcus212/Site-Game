@@ -1,0 +1,74 @@
+
+.containerCategoria{
+    width: 60%;
+    height: 500px;
+    margin: auto;
+   
+    
+}
+
+.containerCategoria h1{
+display: flex;
+justify-content: center;
+align-items: center;
+width: 80%;
+height: 60px;
+background-color: black;
+color: #ffff;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+font-size: 2rem;
+margin-right: 60px;
+
+}
+
+.digitCategotia{
+    display: flex;
+    height: 60px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 2rem;
+    color: #ffff;
+    margin-bottom: 20px;
+    
+    
+}
+.containerCategoria .categorias{
+    width: 100%;
+    background-color: rgb(36, 36, 36);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2rem ;
+    padding-left: -30px;
+  
+  
+}
+
+.btncategoria{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 90px;
+    height: 60px;
+    background-color: #fddb0c;
+    color: #000;
+    font-size: 1.5rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-radius: 1rem;
+    border: none;
+    margin-left: 110px;
+    
+}
+
+#campoCategotia{
+    width: 20rem;
+    height: 30px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+  
+}

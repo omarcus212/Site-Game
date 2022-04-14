@@ -22,7 +22,7 @@
         <div id="categorias-cms">
          <p id="hellou">Bem-vindo</p>
          <img src="./icons/novo-produto.png" alt=""> 
-         <img src="./icons/categoria.png" alt=""> 
+         <img src="./icons/categoria.png" alt="" href="https://github.com/omarcus212/Site-API"> 
          <img src="./icons/contatos.png" alt=""> 
          <img id="usuarioimg" src="./icons/usuarios.png" alt=""> 
          <img src="./icons/logout.png" alt="" >  
@@ -37,7 +37,7 @@
     </header>
     
     <main>
-     <h1>SESSÃO</h1>
+     
 
      <div id="consultaDeDados">
         <table id="tblConsulta" >
