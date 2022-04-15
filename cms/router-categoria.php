@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET')
 
     switch ($componente) {
 
-        case 'CONTATOS';
+        case 'CATEGORIAS';
 
             require_once('./controller/ControllerCategorias.php');
 
@@ -35,8 +35,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET')
                         window.history.back();
                         </script>");
                 }
-            }elseif($action == 'BUSCAR'){
-                            
+            }elseif($action == 'DELETAR'){
+                   $idCategoria = $_GET['id'];
+                 $respostadeletcategorias = excluirCategorias($idCategoria);
+
+                             if (is_bool($respostadeletcategorias)) {
+                                echo ("<script>
+                                      alert('REGISTRO EXCLUIDO COM SUCESSO');
+                                      window.location.href = 'admCategorias.php';
+                                        </script>");
+            
+                      }else if(is_array($respostadeletcategorias)){
+                                  echo ("<script>
+                                  alert('" . $respostadeletcategorias['message'] . "');
+                                  window.history.back();
+                                  </script>");
+            
+                     }
+            
             }
             break;
     }

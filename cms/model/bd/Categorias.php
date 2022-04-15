@@ -37,7 +37,7 @@ function selectAllCategorias()
 
     $conexao = abrirConexaoMyslq();
 
-    $sql = "select * from tblcontatos order by idcontato desc";
+    $sql = "select * from tblcategorias order by idcategorias desc";
 
     $resultbanco = mysqli_query($conexao, $sql);
 
@@ -46,13 +46,36 @@ function selectAllCategorias()
         while ($rsdados = mysqli_fetch_assoc($resultbanco)) {
 
             $arreydados[$cont] = array(
-                "id"   => $rsdados['idcontato'],
+                "id"   => $rsdados['idcategorias'],
                 "Categoria"  => $rsdados['categoria']
             );
             $cont++;
+   
         }
     }
-
-    fecharConexaoMyslq($conexao);
     return $arreydados;
+    fecharConexaoMyslq($conexao);
+    
+}
+
+
+function deletarCategorias($id){
+
+    $status = (boolean)false;
+
+    $conexao = abrirConexaoMyslq();
+
+    $sql = " delete from tblcategorias where idcategorias = ".$id;
+
+     if(mysqli_query($conexao,$sql)){
+         if(mysqli_affected_rows($conexao)){
+            $status = true;
+          
+         }
+         fecharConexaoMyslq($conexao);
+         return $status;
+     }
+
+
+
 }

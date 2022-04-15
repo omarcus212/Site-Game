@@ -9,6 +9,7 @@
  * 
  * versao : 1.0
  */
+require_once('./model/bd/Categorias.php');
 
 function inserirCategoria($categoria)
 {
@@ -23,7 +24,7 @@ function inserirCategoria($categoria)
 
             );
 
-            require_once('./model/bd/Categorias.php');
+           
 
             if (insertCategorias($arreyCategoria)) {
 
@@ -43,10 +44,11 @@ function inserirCategoria($categoria)
 }
 
 
-function listarCategoria(){
+function listarCategoria()
+{
 
 
- require_once('model/bd/Categorias.php');
+ require_once('./model/bd/Categorias.php');
 
  $dados = selectAllCategorias();
 
@@ -60,5 +62,24 @@ function listarCategoria(){
      
 
 
+
+}
+
+
+function excluirCategorias($id){
+
+    if($id != 0 && !empty($id) && is_numeric($id)){
+       
+             
+        if(deletarCategorias($id)){
+            return true;
+        }else{
+            return array('idErro' => 3,
+                'message' => 'o banco de dados nao pode excluir o regristo');
+          }
+    }else{
+        return array('idErro' => 4,
+                        'message' => 'nao é possivel excluir o registro sem um id valido');
+    }
 
 }

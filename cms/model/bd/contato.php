@@ -40,7 +40,8 @@ function selectAllContatos(){
 
 
 
-function deletarContato($id){
+function deletarContato($id)
+{
 
 $status = (boolean)  false;
 

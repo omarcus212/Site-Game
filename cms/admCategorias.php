@@ -27,9 +27,9 @@
             <p id="hellou">Bem-vindo</p>
             <img src="./icons/novo-produto.png" alt="">
             <img src="./icons/categoria.png" alt="">
-            <img src="./icons/contatos.png" alt="">
+           <a href="./desheborCCT.php"><img src="./icons/contatos.png" alt=""></a> 
             <img id="usuarioimg" src="./icons/usuarios.png" alt="">
-            <img src="./icons/logout.png" alt="">
+            <a href="../index.html"><img src="./icons/logout.png" alt="" ></a>  
             <div id="opçoes-escolha">
                 <p>Adm. de Produtos</p>
                 <p>Adm. de Categorias</p>
@@ -48,7 +48,7 @@
             <div class="categorias">
                 <h1>CATEGORIAS</h1>
                 <span class="digitCategotia">Digite sua Categoria :</span>
-                <form action="router-categoria.php?componente=contatos&action=inserir" method="POST" name="frmCategorias">
+                <form action="router-categoria.php?componente=categorias&action=inserir" method="POST" name="frmCategorias">
                     <input type="text" id="campoCategotia" name="txtCategoria" placeholder="Digite a Categoria">
                     <input type="submit" class="btncategoria" value="Salvar">
                 </form>
@@ -78,14 +78,14 @@
 
                 <?php
                  require_once('controller/ControllerCategorias.php');
-                 $listcontatos = listarCategoria();
+                 $listcategorias = listarCategoria();
                  
-                foreach ($listcontatos as $item){
+                foreach ($listcategorias as $item){
                   
                 
             ?>
                 <tr id="tblLinhas">
-                    <td class="tblColunas registros"><?=$item['categoria']?></td>
+                    <td class="tblColunas registros"><?=$item['Categoria']?></td>
 
 
 
@@ -93,7 +93,7 @@
                     <td class="tblColunas registros">
                         <img src="img/edit.png" alt="Editar" title="Editar" class="editar">
 
-                        <a onclick="return confirm('Tem certeza que deseja excluir?')" href="router.php?componente=contatos&action=deletar&id=<?= $item['id'] ?>">
+                        <a onclick="return confirm('Tem certeza que deseja excluir?')" href="router-categoria.php?componente=categorias&action=deletar&id=<?=$item['id'] ?>">
                             <img src="img/trash.png" alt="Excluir" title="Excluir" class="excluir">
                         </a>
 
