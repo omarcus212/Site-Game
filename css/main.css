@@ -477,7 +477,7 @@ background-color: #FDDB00;
     opacity: 90%;
     overflow: hidden;
     height: auto;
-    margin-bottom:8rem ;
+    margin-bottom:7rem ;
      background-image: url(/imgs/nintendo.jpg); 
 
 
@@ -622,26 +622,37 @@ font-family: 'Roboto', sans-serif;
 }
 
 
-
+#sobre{
+    width: 100%;
+    height: 50rem;
+    margin-bottom: 0px;
+}
 
 #sobre img{
     width: 100%;
-    height: 100%;
+    height: 90%;
     opacity: 60%;
     
 }
 
 
 #texto-quemsomo{
-padding-top: 100px;
-padding-left: 100px;
-padding-right: 100px;
+padding-top: 80px;
+padding-left: 50px;
+padding-right: 40px;
 position: absolute;
-width: 90%;
-height: 600px;
 left: 70px;
+width: 90%;
+height: 60%;
+text-align: center;
+font-family: 'Lobster', cursive;
+font-size: 2em;
+color: #fff;
+
 
 }
+
+
 
 #texto-quemsomo .quem-somos{
 margin-bottom: 60px;
@@ -653,17 +664,10 @@ align-items: center;
 color: rgb(255, 255, 255);
 font-size: 50px;
 font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
 }
 
 
-#texto-quemsomo {
-    width: 90%;
-    height: 80%;
-    text-align: center;
-    font-family: 'Lobster', cursive;
-    font-size: 2em;
-    color: #fff;
-}
 
 
 
@@ -675,7 +679,7 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 #contatos{
     padding-top: 5%;
     background-color: rgba(0, 0, 0, 0.973);
-    height: 600px;
+    height: 700px;
     width: 100%;
     padding-left:20px;
 }
@@ -692,7 +696,6 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 .caixadecnt{
     width: 20%;
     flex-direction: row;
-    background-color: #ff8c00;
     padding: 10PX;
 }
 
@@ -739,9 +742,10 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: rgba(151, 243, 13, 0.767);
     font-size: 20px;
     margin-bottom: 50px;
-    box-shadow: 0px 0px 10px rgb(183, 236, 103);
-    border-radius: 1em;
-    border:#fff;
+    border-radius: 1rem;
+    border:none;
     cursor: pointer;
+    width: 80px;
+    height: 60px;
     
 }
