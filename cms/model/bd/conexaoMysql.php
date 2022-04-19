@@ -3,8 +3,8 @@
 
 const SERVE = 'localhost';
 const USER = 'root';
-const  PASSWORD = 'Mvnfox258.';
-const DATABASE = 'dbseugame';
+const  PASSWORD = 'bcd127';
+const DATABASE = 'dbcontatos';
 
 
 
