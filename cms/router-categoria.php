@@ -53,6 +53,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET')
             
                      }
             
+            }else if($action == 'BUSCAR'){
+                $idCategoria = $_GET['id'];
+                $resposta = buscarCategorias($idCategoria);
+
+                session_start();
+                $_SESSION['dadosCategoria']=$resposta;
+
+            }else if($action = 'EDITAR'){
+               $idCategoria = $_GET['id'];
+               $resposta =  atualizarContatos($_POST,$idCategoria); 
             }
             break;
     }

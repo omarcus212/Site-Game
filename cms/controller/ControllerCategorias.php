@@ -83,3 +83,18 @@ function excluirCategorias($id){
     }
 
 }
+
+function buscarCategorias($id){
+   
+if($id != 0 && !empty($id) && is_numeric($id)){
+
+    require_once('model/bd/Categorias.php');
+
+    $dadosCategoria = selectbyIdCategorias($id);
+
+}else {
+    return array('idErro' => 4,
+    'message' => 'nao é possivel buscar o registro sem um id valido');
+}
+
+}

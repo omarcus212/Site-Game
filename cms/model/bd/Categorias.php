@@ -79,3 +79,11 @@ function deletarCategorias($id){
 
 
 }
+
+function selectbyIdCategorias($id){
+ 
+    $conexao = abrirConexaoMyslq();
+
+
+
+}
