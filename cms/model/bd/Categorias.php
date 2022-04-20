@@ -50,40 +50,82 @@ function selectAllCategorias()
                 "Categoria"  => $rsdados['categoria']
             );
             $cont++;
-   
         }
     }
     return $arreydados;
     fecharConexaoMyslq($conexao);
-    
 }
 
 
-function deletarCategorias($id){
+function deletarCategorias($id)
+{
 
-    $status = (boolean)false;
+    $status = (bool)false;
 
     $conexao = abrirConexaoMyslq();
 
-    $sql = " delete from tblcategorias where idcategorias = ".$id;
+    $sql = " delete from tblcategorias where idcategorias = " . $id;
 
-     if(mysqli_query($conexao,$sql)){
-         if(mysqli_affected_rows($conexao)){
+    if (mysqli_query($conexao, $sql)) {
+        if (mysqli_affected_rows($conexao)) {
             $status = true;
-          
-         }
-         fecharConexaoMyslq($conexao);
-         return $status;
-     }
-
-
-
+        }
+        fecharConexaoMyslq($conexao);
+        return $status;
+    }
 }
 
-function selectbyIdCategorias($id){
- 
+function selectbyIdCategorias($id)
+{
+
     $conexao = abrirConexaoMyslq();
 
+    $slq = "select * from tblcategorias where idcategorias =".$id ;
+
+    $result = mysqli_query($conexao,$slq);
+    if($result){
+       
+          if($rsdados = mysqli_fetch_assoc($result)){
+                  
+           $arreydados = array(
+              "id"   => $rsdados['idcategorias'],
+              "Nomecategoria"  =>$rsdados['categoria']
+             
+           );
+           
+        } 
+       
+        
+        fecharConexaoMyslq($conexao);
+        return $arreydados;
+        
+    } 
+}
 
 
+
+function uptadecategoria($dadoCategoria)
+{
+    $resposta = (bool)false;
+
+
+    $conexaosql = abrirConexaoMyslq();
+
+    $sql = "update tblcategorias set 
+
+categoria =  '" . $dadoCategoria{'Categorianome'} . "'
+
+        where idcategorias =" . $dadoCategoria['id'];
+
+         
+
+    if (mysqli_query($conexaosql, $sql)) {
+
+        if (mysqli_affected_rows($conexaosql)) {
+            $resposta = true;
+        }
+
+        fecharConexaoMyslq($conexaosql);
+        return $resposta;
+    }
 }

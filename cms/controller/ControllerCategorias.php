@@ -24,7 +24,7 @@ function inserirCategoria($categoria)
 
             );
 
-           
+
 
             if (insertCategorias($arreyCategoria)) {
 
@@ -48,53 +48,109 @@ function listarCategoria()
 {
 
 
- require_once('./model/bd/Categorias.php');
+    require_once('./model/bd/Categorias.php');
 
- $dados = selectAllCategorias();
+    $dados = selectAllCategorias();
 
- if(!empty($dados))
+    if (!empty($dados))
 
- return $dados;
+        return $dados;
 
- else
+    else
 
- return false;
-     
-
-
-
+        return false;
 }
 
 
-function excluirCategorias($id){
+function excluirCategorias($id)
+{
 
-    if($id != 0 && !empty($id) && is_numeric($id)){
-       
-             
-        if(deletarCategorias($id)){
+    if ($id != 0 && !empty($id) && is_numeric($id)) {
+
+
+        if (deletarCategorias($id)) {
             return true;
-        }else{
-            return array('idErro' => 3,
-                'message' => 'o banco de dados nao pode excluir o regristo');
-          }
-    }else{
-        return array('idErro' => 4,
-                        'message' => 'nao é possivel excluir o registro sem um id valido');
+        } else {
+            return array(
+                'idErro' => 3,
+                'message' => 'o banco de dados nao pode excluir o regristo'
+            );
+        }
+    } else {
+        return array(
+            'idErro' => 4,
+            'message' => 'nao é possivel excluir o registro sem um id valido'
+        );
     }
-
 }
 
-function buscarCategorias($id){
-   
-if($id != 0 && !empty($id) && is_numeric($id)){
+function buscarCategorias($id)
+{
 
-    require_once('model/bd/Categorias.php');
+    if ($id != 0 && !empty($id) && is_numeric($id)) {
 
-    $dadosCategoria = selectbyIdCategorias($id);
+        require_once('model/bd/Categorias.php');
 
-}else {
-    return array('idErro' => 4,
-    'message' => 'nao é possivel buscar o registro sem um id valido');
+        $dadosCategoria = selectbyIdCategorias($id);
+        if (!empty($dadosCategoria)) {
+            return $dadosCategoria;
+
+        } else {
+            return false;
+        }
+    } else {
+        return array(
+            'idErro' => 4,
+            'message' => 'nao é possivel buscar o registro sem um id valido'
+        );
+    }
 }
+
+
+
+
+function atualizarContatos($dadosCte, $id)
+{
+ if(!empty($dadosCte)){
+    
+    if(!empty($dadosCte['txtCategoria'])){
+
+        if(!empty($id) && $id != 0 && is_numeric($id)){
+              
+            $arreydads = array(
+             
+                "id" => $id,
+                "Categorianome" => $dadosCte['txtCategoria']
+              
+            );
+
+         
+
+
+              if(uptadecategoria($arreydads)){
+                  return true;
+              }else{
+           
+                return array('idErro ' => 1, 
+                'message' => 'nao foi possivel atualizar os dados' );
+               
+              }
+
+
+
+        }else{                 // else de fechamento do estrura de deciçao do $id;
+            return array('idErro ' => 4, 
+            'message' => 'nao foi possivel atualizar os dados' );     
+        }
+
+    }else {
+
+                return array('idErro ' => 2,  'message' => 'existem campos obrigatorios que nao foram preenchidos');
+
+                }
+
+     
+ }
+
 
 }

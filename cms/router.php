@@ -7,51 +7,117 @@ $action = (string)null;
 $componente = (string)null;
 
 
-if($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET'){
+if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET') {
 
     $componente = strtoupper($_GET['componente']);
     $action = strtoupper($_GET['action']);
 
- switch($componente){
-      
-    case 'CONTATOS';
+    switch ($componente) {
 
-     require_once('controller/ControllerContatos.php');
+        case 'CONTATOS';
 
-   
-        if($action == 'DELETAR'){
-            
-            $idContatos = $_GET['id'];
-            $respostadados = excluirContato($idContatos);
+            require_once('controller/ControllerContatos.php');
 
-            if (is_bool($respostadados)) {
-                echo ("<script>
+
+            if ($action == 'DELETAR') {
+
+                $idContatos = $_GET['id'];
+                $respostadados = excluirContato($idContatos);
+
+                if (is_bool($respostadados)) {
+                    echo ("<script>
                       alert('REGISTRO EXCLUIDO COM SUCESSO');
                       window.location.href = 'desheborCCT.php';
                         </script>");
-
-            }else if(is_array($respostadados)){
-                  echo ("<script>
+                } else if (is_array($respostadados)) {
+                    echo ("<script>
                   alert('" . $resposta['message'] . "');
                   window.history.back();
                   </script>");
-
-     }
-        
-        }
-
-    break;
-
- }
+                }
+            }
+           break;
 
 
+        case 'CATEGORIAS';
+
+            require_once('./controller/ControllerCategorias.php');
+
+            if ($action == 'INSERIR') {
+
+                $resposta = inserirCategoria($_POST);
+
+                if (is_bool($resposta)) {
+
+                            echo ("<script>
+                    alert('REGISTRO INSIRIDO COM SUCESSO');
+                    window.location.href = 'admCategorias.php';
+                    </script>");
+                    
+                } elseif (is_array($resposta)) {
+
+                    echo ("<script>
+                alert('" . $resposta['message'] . "');
+                window.history.back();
+                </script>");
+
+                }
+
+            } elseif ($action == 'DELETAR') {
+
+                $idCategoria = $_GET['id'];
+                $respostadeletcategorias = excluirCategorias($idCategoria);
+
+                if (is_bool($respostadeletcategorias)) {
+
+                    echo ("<script>
+                        alert('REGISTRO EXCLUIDO COM SUCESSO');
+                        window.location.href = 'admCategorias.php';
+                        </script>");
+
+
+                } else if (is_array($respostadeletcategorias)) {
+
+                    echo ("<script>
+                          alert('" . $respostadeletcategorias['message'] . "');
+                          window.history.back();
+                          </script>");
+                }
+
+
+            } else if ($action == 'BUSCAR') {
+
+                $idCategoria = $_GET['id'];
+                $resposta = buscarCategorias($idCategoria);
+
+                session_start();
+                $_SESSION['dadosCategoria'] = $resposta;
+
+                require_once('admCategorias.php');  
+                
+            } else if ($action == 'EDITAR') {
+
+                $idCategoria = $_GET['id'];
+                $respostaeiditar =  atualizarContatos($_POST, $idCategoria);
+               
+
+                if (is_bool($respostaeiditar)) {   
+                                                       
+                    echo ("<script>
+                alert('REGISTRO ATUALIZADO COM SUCESSO');
+                window.location.href = 'admCategorias.php';
+                </script>");
+
+
+                } elseif (is_array($respostaeiditar)) {   
+                                                       
+                    echo ("<script>
+                  alert('" . $respostaeiditar['message'] . "');
+                 window.history.back();
+                  </script>");
+
+                }
+            }
+            break;
+    }
 }
-
-
-
-
-
-
-
-
-?>

@@ -1,3 +1,22 @@
+<?php
+
+
+$form = (string)"router.php?componente=categorias&action=inserir";
+
+if(session_status()){
+ if(!empty($_SESSION['dadoscategoria'])){
+         $id= $_SESSION['dadosCategoria']['id'];
+         $nomecategoria= $_SESSION['dadosCategoria']['Nomecategoria'];
+
+
+         $form = "router.php?componente=categorias&action=editar&id=".$id;
+         unset($_SESSION['dadosCategotias']);
+ }
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,8 +67,8 @@
             <div class="categorias">
                 <h1>CATEGORIAS</h1>
                 <span class="digitCategotia">Digite sua Categoria :</span>
-                <form action="router-categoria.php?componente=categorias&action=inserir" method="POST" name="frmCategorias">
-                    <input type="text" id="campoCategotia" name="txtCategoria" placeholder="Digite a Categoria">
+                <form action="<?=$form?>" method="POST" name="frmCategorias">
+                    <input type="text" id="campoCategotia" name="txtCategoria" value="<?=isset($nomecategoria)?$nomecategoria:null?>" placeholder="Digite a Categoria">
                     <input type="submit" class="btncategoria" value="Salvar">
                 </form>
 
@@ -91,9 +110,12 @@
 
 
                     <td class="tblColunas registros">
+                        <a href="router.php?componente=categorias&action=buscar&id=<?=$item['id']?>">
                         <img src="img/edit.png" alt="Editar" title="Editar" class="editar">
+                    </a>
+                        
 
-                        <a onclick="return confirm('Tem certeza que deseja excluir?')" href="router-categoria.php?componente=categorias&action=deletar&id=<?=$item['id'] ?>">
+                        <a onclick="return confirm('Tem certeza que deseja excluir?')" href="router.php?componente=categorias&action=deletar&id=<?=$item['id'] ?>">
                             <img src="img/trash.png" alt="Excluir" title="Excluir" class="excluir">
                         </a>
 
