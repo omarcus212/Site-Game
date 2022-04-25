@@ -703,7 +703,7 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 .caixadecnt h3{
 
     flex-direction: column;
-
+    color: rgb(253, 253, 253);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 
     'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
@@ -725,6 +725,7 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-bottom: 5px;
     border-color: rgb(0, 0, 0);
     border-style: hidden;
+    resize: none;
 }
 
 

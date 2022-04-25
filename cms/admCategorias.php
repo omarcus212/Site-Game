@@ -1,7 +1,7 @@
 <?php
 
 
-$form = (string)"router.php?componente=categorias&action=inserir";
+$form = (string)"router.php?componente=categorias&action=editar";
 
 if(session_status()){
  if(!empty($_SESSION['dadoscategoria'])){
@@ -46,8 +46,8 @@ if(session_status()){
             <p id="hellou">Bem-vindo</p>
             <img src="./icons/novo-produto.png" alt="">
             <img src="./icons/categoria.png" alt="">
-           <a href="./desheborCCT.php"><img src="./icons/contatos.png" alt=""></a> 
-            <img id="usuarioimg" src="./icons/usuarios.png" alt="">
+            <a href="./desheborCCT.php"><img src="./icons/contatos.png" alt=""></a> 
+            <a href="./UsuarioADM.php"><img id="usuarioimg" src="./icons/usuarios.png" alt=""></a> 
             <a href="../index.html"><img src="./icons/logout.png" alt="" ></a>  
             <div id="opçoes-escolha">
                 <p>Adm. de Produtos</p>

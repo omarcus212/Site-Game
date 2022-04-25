@@ -43,25 +43,25 @@ function selectAllContatos(){
 function deletarContato($id)
 {
 
-$status = (boolean)  false;
+   $status = (boolean)  false;
 
-$conexao = abrirConexaoMyslq();
+   $conexao = abrirConexaoMyslq();
 
-$sql  = " delete from tblcontatos where idcontato = ".$id;
+   $sql  = " delete from tblcontatos where idcontato = ".$id;
 
 
-if(mysqli_query($conexao,$sql)){
-     if(mysqli_affected_rows($conexao)){
-           
-        $status = true;
-     } 
-     
-     
-     fecharConexaoMyslq($conexao);
-     return $status;
-}
+   if(mysqli_query($conexao,$sql)){
+      if(mysqli_affected_rows($conexao)){
+            
+         $status = true;
+      } 
+      
+      
+      fecharConexaoMyslq($conexao);
+      return $status;
+   }
 
-return $status;
+   return $status;
 
 
 }

@@ -1,0 +1,85 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.containerUsuarioAdm{
+    width: 90%;
+    height:400px;
+    margin: auto;
+   
+    
+}
+
+.containerUsuarioAdm .admUsuario{
+    position: relative;
+    width: 100%;
+    background-color: rgb(36, 36, 36);
+    height: 100%;
+    border-radius: 1rem ;
+    padding-top: 1px;
+    
+  
+  
+  
+}
+
+.admUsuario h1{
+display: flex;
+justify-content: center;
+align-items: center;
+width: 80%;
+height: 60px;
+background-color: rgb(163, 163, 163);
+color: #ffff;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+font-size: 1.5rem;
+margin-bottom: 50px ;
+margin-left: 10%;
+
+
+}
+
+.admUsuario form{
+    margin: auto;
+    width: 90%;
+    height: 60px;
+    background-color: #141414;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    
+    
+}
+
+.admUsuario span{
+    width: 6%;
+    height: 20px;
+    color: #fbdc00;
+    font-style: italic;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
+   
+}
+
+.admUsuario input{
+    margin-right: 30px;
+    font-size: 20px ;
+    padding: 1px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: none;
+}
+
+.btnenviar{
+    position: absolute;
+    top: 70%;
+    width: 80px;
+    height: 50px;
+    border: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.3rem;
+    background-color: #fbdc00;
+    color: #0a0a0a  ;
+    cursor: pointer;
+}

@@ -17,8 +17,7 @@ function listarcontatos(){
 }
 
 
-function excluirContato($id)
-{
+function excluirContato($id){
 
     if($id !=0 && !empty($id) && is_numeric($id)){
    

@@ -6,7 +6,9 @@ box-sizing: border-box;
 
 html{
     scroll-behavior:smooth;
+    
 }
+
 
 main{
 padding-left: 5%;
@@ -24,3 +26,12 @@ background-color: #171717;
     height: 40px;
 }
 
+::-webkit-scrollbar{
+    height: auto;
+    background-color: #5a5a5a;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #fbdc00;
+    height: 50px;
+}

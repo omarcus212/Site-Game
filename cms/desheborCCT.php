@@ -22,9 +22,9 @@
         <div id="categorias-cms">
          <p id="hellou">Bem-vindo</p>
          <img src="./icons/novo-produto.png" alt=""> 
-         <a href="./admCategorias.php"><img src="./icons/categoria.png" alt="" href="https://github.com/omarcus212/Site-API"></a>
+         <a href="./admCategorias.php"><img src="./icons/categoria.png" alt=""></a>
          <img src="./icons/contatos.png" alt=""> 
-         <img id="usuarioimg" src="./icons/usuarios.png" alt=""> 
+         <a href="./UsuarioADM.php"><img id="usuarioimg" src="./icons/usuarios.png" alt=""></a> 
          <a href="../index.html"><img src="./icons/logout.png" alt="" ></a>  
          <div id="opçoes-escolha" >
         <p>Adm. de Produtos</p>
