@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET')
     $componente = strtoupper($_GET['componente']);
     $action = strtoupper($_GET['action']);
 
-
+    
     switch ($componente) {
 
         case 'CONTATOS';
@@ -156,18 +156,39 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET')
                  }
 
 
-            } else if ($action = 'BUSCAR') {
+            } else if ($action == 'BUSCAR') {
 
                 $iduseradm = $_GET['id'];
                 $respostaeditaruseradm = BuscarUserAdm($iduseradm);
 
                 session_start();
                 $_SESSION['dadosUserAdm'] = $respostaeditaruseradm;
-
                 require_once('UsuarioADM.php');
 
+            }else if($action == 'EDITAR'){
+                
+                $iduseradm = $_GET['id'];
+            
+                $respostauseradm = editarUserAdm($_POST,$iduseradm);
+                
+
+                if (is_bool($respostauseradm)) {
+
+                    echo ("<script>
+                alert('REGISTRO ATUALIZADO COM SUCESSO');
+                window.location.href = 'UsuarioADM.php';
+                </script>");
+                }elseif (is_array($respostauseradm)) {
+
+                    echo ("<script>
+                  alert('" . $$respostauseradm['message'] . "');
+                 window.history.back();
+                  </script>");
+                }
             }
 
         break;
     }
 }
+
+

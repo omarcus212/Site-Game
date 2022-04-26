@@ -101,12 +101,10 @@ function BuscarUserAdm($iduser){
 
 function editarUserAdm($dados,$id){
 
-   var_dump($dados);
-   die;
-
    if(!empty($dados)){
           if(!empty($dados['txtnomeadm']) & !empty($dados['txtemailadm']) & !empty($dados['txtsenhaadm'])){
             if($id != 0 & !empty($id) & is_numeric($id)){
+               
                      $arraydados = array(
 
                             "id" => $id,
@@ -116,6 +114,8 @@ function editarUserAdm($dados,$id){
 
                      );
 
+                    
+                     require_once('./model/bd/UserAdm.php');
                      if(updateUser($arraydados)){
                             return true;
                      }else{

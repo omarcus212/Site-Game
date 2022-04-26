@@ -26,6 +26,29 @@ function insertUserAdm($dadosadm){
 
 }
 
+function updateUser($dadosuser){
+  
+  $reposta =(boolean) false;
+
+  $conexao = abrirConexaoMyslq();
+  $sql = "update tbluseradm set
+
+   nome = '".$dadosuser{'nome'}."',
+   email = '".$dadosuser{'email'}."',
+   senha = '".$dadosuser{'senha'}."'
+   where iduseradm =" .$dadosuser['id'];
+
+      if(mysqli_query($conexao,$sql)){
+          if(mysqli_affected_rows($conexao)){
+            $reposta =  true;
+          }
+
+          fecharConexaoMyslq($conexao);
+          return $reposta;
+      }   
+      
+}
+
 function deletarUser($id){
 
   $status = false;
@@ -91,14 +114,14 @@ function selectbyIdUser($id){
 
    if($result){
       
-        while($dadosadm = mysqli_fetch_assoc($result)){
+        if($dadosadm = mysqli_fetch_assoc($result)){
              
           $arraydados = array(
               
                "id" => $dadosadm['iduseradm'],
                "Nome" => $dadosadm['nome'], 
-               "email" => $dadosadm['email'],
-               "senha" => $dadosadm['senha']                             
+               "Email" => $dadosadm['email'],
+               "Senha" => $dadosadm['senha']                             
           );
        
         }
@@ -112,28 +135,3 @@ function selectbyIdUser($id){
 
 }
 
-function updateUser($dadosuser){
-  
-  $reposta = false;
-
-  $conexao = abrirConexaoMyslq();
-  $sql = "update tblcategorias set
-    
-   nome = '".$dadosuser{'nome'}."',
-   email = '".$dadosuser{'email'}."',
-   senha = '".$dadosuser{'senha'}."'
-   
-     where iduseradm =" .$dadosuser['id'];
-
-     
-
-      if(mysqli_query($conexao,$sql)){
-          if(mysqli_affected_rows($conexao)){
-             return true;
-          }
-
-          fecharConexaoMyslq($conexao);
-          return $reposta;
-      }   
-      
-}

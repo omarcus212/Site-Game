@@ -1,4 +1,20 @@
 <?php
+  
+
+  $form = (string)"router.php?componente=useradm&action=inserir";
+
+  if(session_status()){
+      if(!empty($_SESSION['dadosUserAdm'])){
+          
+        $id = $_SESSION['dadosUserAdm']['id'];
+        $nome = $_SESSION['dadosUserAdm']['Nome'];
+        $email = $_SESSION['dadosUserAdm']['Email'];
+        $senha = $_SESSION['dadosUserAdm']['Senha'];
+
+        $form = "router.php?componente=useradm&action=editar&id=".$id;
+           unset($_SESSION['dadosUserAdm']);
+      }
+  }
 
 
 
@@ -50,7 +66,7 @@
 
             <div class="admUsuario">
                      <h1>Criar Contato ADM</h1>
-                  <form action="router.php?componente=useradm&action=inserir" method="POST">
+                  <form action="<?=$form?>" method="post">
                    <span class="txtspan">NOME:</span><input type="text" name="txtnomeadm" value="<?=isset($nome)?$nome:null?>">
                    <span class="txtspan">EMAIL:</span> <input type="email" name="txtemailadm" value="<?=isset($email)?$email:null?>">
                    <span class="txtspan">SENHA:</span> <input type="text" name="txtsenhaadm" value="<?=isset($senha)?$senha:null?>">
