@@ -10,6 +10,7 @@
  */
 
  require_once('./model/bd/UserAdm.php');
+ require_once('./model/bd/config.php');
 
  function inserirUserAdm($useradm){
 
@@ -32,13 +33,10 @@
 
             } else {
 
-                return array(
-                    'idErro ' => 1,
-                    'message' => 'nao foi possivel inserir os dados'
-                );
+                return array(ERRO_INSERIR_DADOS);
             }
               }else{
-               return array('idErro ' => 2,  'message' => 'existem campos obrigatorios que nao foram preenchidos');
+               return array(ERRO_CAMPOS_VAZIOS);
               }
 
         }
@@ -71,12 +69,10 @@ function excluiruserAdm($iduser){
             return true;
 
          }else{
-            return array('idErro' => 3,
-            'message' => 'o banco de dados nao pode excluir o regristo');
+            return array(ERRO_AO_EXCLUIR);
          }
    }else{
-    return array('idErro' => 4,
-    'message' => 'nao é possivel excluir o registro sem um id valido');
+    return array(ID_INVALIDO);
    }
 }
 
@@ -91,10 +87,7 @@ function BuscarUserAdm($iduser){
                return false;
             }
    }else{
-      return array(
-         'idErro' => 4,
-         'message' => 'nao é possivel buscar o registro sem um id valido'
-     );
+      return array(ID_INVALIDO);
    }
 
 }
@@ -128,7 +121,7 @@ function editarUserAdm($dados,$id){
               }
           }else{
 
-            return array('idErro ' => 2,  'message' => 'existem campos obrigatorios que nao foram preenchidos');
+            return array(ERRO_INSERIR_DADOS);
 
           }
    }  

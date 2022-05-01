@@ -1,7 +1,7 @@
 <?php
 
 require_once('model/bd/contato.php');
-
+require_once('./model/bd/config.php');
 
 function listarcontatos(){
     
@@ -26,13 +26,11 @@ function excluirContato($id){
             return true;
 
        }else{
-         return array('idErro' => 3,
-             'message' => 'o banco de dados nao pode excluir o regristo');
+         return array(ERRO_AO_EXCLUIR);
        }
          
     }else{
-        return array('idErro' => 4,
-                        'message' => 'nao é possivel excluir o registro sem um id valido');
+        return array(ID_INVALIDO);
     }
 
 
