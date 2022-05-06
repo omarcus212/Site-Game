@@ -1,0 +1,82 @@
+
+/*footer*/
+#contatos{
+    padding-top: 5%;
+    background-color: rgba(0, 0, 0, 0.973);
+    height: 700px;
+    width: 100%;
+    padding-left:20px;
+}
+
+#contatos h1{
+    color: white;
+    font-size: 3rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 100%;
+    padding-left: 10px;
+    margin-bottom: 30px;
+}
+
+.caixadecnt{
+    width: 20%;
+    flex-direction: row;
+    padding: 10PX;
+}
+
+#contatos h2,
+.caixadecnt h3{
+
+    flex-direction: column;
+    color: rgb(253, 253, 253);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 
+    'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+
+}
+
+#contatos h2{
+    width: 10%;
+    padding-top: 10px;
+    color: rgb(226, 226, 226);
+    
+}
+
+.caixadecnt{
+    margin-bottom: 30px;
+}
+
+#areaobs{
+    margin-bottom: 5px;
+    border-color: rgb(0, 0, 0);
+    border-style: hidden;
+    resize: none;
+}
+
+#finalsitecnt{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+#btnemviar-contatos{
+    color: rgb(255, 255, 255);
+    background-color: rgba(151, 243, 13, 0.767);
+    font-size: 20px;
+    margin-bottom: 50px;
+    border-radius: 1rem;
+    border:none;
+    cursor: pointer;
+    width: 80px;
+    height: 60px;
+    
+}
+
+
+@media (max-width:980px) {
+       
+    #texto-quemsomo{
+        font-size: 20px;
+    }
+}

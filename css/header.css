@@ -220,3 +220,17 @@ display: flex;
     background: #fddb00;
 
 }
+
+
+
+@media (max-width:1000px) {
+
+    header{
+        
+        width:100%;
+    }
+    #nome-site{
+        display: none;
+        transition: 0.40s;
+    }
+}

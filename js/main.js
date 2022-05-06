@@ -287,7 +287,7 @@ const criardetalhes = (produto) =>{
    
     card.innerHTML = `
     <div id="divdetalhes-card">
-    <img src="/imgs/letra-x.png" alt="" id="img-fechar-detalhes">
+    <img src="./imgs/letra-x.png" alt="" id="img-fechar-detalhes">
     <div class="modal-detalhes">
         <header>
             <h1>${produto.nome}</h1>
