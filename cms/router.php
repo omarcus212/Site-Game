@@ -188,6 +188,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET')
             }
 
         break;
+         
+        case 'PRODUTO';
+        require_once('./controller/ControllerProduto.php');
+               if($action == 'INSERIR'){
+                  
+                $respostaproduto = inserirProduto($_POST);
+               
+    
+                
+                if (is_bool($respostaproduto)) {
+
+                    echo ("<script>
+                    alert('REGISTRO INSIRIDO COM SUCESSO');
+                    window.location.href = 'admprodutos.php';
+                    </script>");
+                } elseif (is_array($respostaproduto)) {
+
+                    echo ("<script>
+                alert('" . $respostaproduto['message'] . "');
+                window.history.back();
+                </script>");
+                
+                }
+
+               }else{
+                   echo('erro');
+               }
+        break;
+
     }
 }
 

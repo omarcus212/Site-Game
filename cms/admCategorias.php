@@ -1,7 +1,7 @@
 <?php
 
 
-$form = (string)"router.php?componente=categorias&action=editar";
+$form = (string)"router.php?componente=categorias&action=inserir";
 
 if(session_status()){
  if(!empty($_SESSION['dadoscategoria'])){

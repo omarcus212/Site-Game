@@ -42,16 +42,16 @@
     <main>
 
         <div class="container">
-            <form action="post">
+            <form action="router.php?componente=produto&action=inserir" method="POST" name="frmproduto">
                 <div class="nomeproduto">
-                    <span>Nome:</span><input type="text">
+                    <span>Nome:</span><input type="text" name="txtproduto">
                 </div>
 
-
+        
                 <div class="imgproduto">
                     <div class="foto">
                         <label> Escolha um arquivo: </label> <input type="file" name="flefoto"
-                            accept=".jpg, .png, .jpeg, .gif">
+                            accept=".jpg, .png, .jpeg, .gif" >
                     </div>
                     <img src="../imgs/horizon.jpg" alt="">
                 </div>
@@ -59,17 +59,17 @@
 
                 <div class="sobreproduto">
                     <div>
-                        <label>Preço:</label><input type="text">
+                        <label>Preço:</label><input type="text" name="txtpreco">
                     </div>
                     <div>
                         <label>Destaque:</label>
                         <span>Sim</span>
-                        <input type="radio" name="rdoproduto">
+                        <input type="radio" name="rdoproduto" value="1">
                         <span>Não</span>
-                        <input type="radio" name="rdoproduto">
+                        <input type="radio" name="rdoproduto" value="0" >
                     </div>
                     <div>
-                        <label>Percentual:</label><input type="text">
+                        <label>Percentual:</label><input type="text" name="txtpercentual">
                     </div>
                 </div>
 
