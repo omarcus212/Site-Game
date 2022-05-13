@@ -50,8 +50,8 @@
         
                 <div class="imgproduto">
                     <div class="foto">
-                        <label> Escolha um arquivo: </label> <input type="file" name="flefoto"
-                            accept=".jpg, .png, .jpeg, .gif" >
+                        <!-- <label> Escolha um arquivo: </label> <input type="file" name="flefoto"
+                            accept=".jpg, .png, .jpeg, .gif" > -->
                     </div>
                     <img src="../imgs/horizon.jpg" alt="">
                 </div>
@@ -59,14 +59,14 @@
 
                 <div class="sobreproduto">
                     <div>
-                        <label>Preço:</label><input type="text" name="txtpreco">
+                        <label>Preço:</label>
+                        <input type="text" name="txtpreco">
                     </div>
                     <div>
                         <label>Destaque:</label>
                         <span>Sim</span>
-                        <input type="radio" name="rdoproduto" value="1">
-                        <span>Não</span>
-                        <input type="radio" name="rdoproduto" value="0" >
+                        <input type="checkbox" name="checkproduto" value="1">
+                       
                     </div>
                     <div>
                         <label>Percentual:</label><input type="text" name="txtpercentual">
@@ -75,7 +75,7 @@
 
 
                 <div class="detalhes">
-                    <span>Detalhes:</span> <textarea name="detalhes" id="" cols="40" rows="10" class="areadetalhes"
+                    <span>Detalhes:</span> <textarea name="txtdetalhes" id="" cols="40" rows="10" class="areadetalhes"
                         placeholder="digite aqui:"></textarea>
                 </div>
                 <input type="submit" id="enviar">

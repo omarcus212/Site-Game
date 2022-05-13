@@ -194,8 +194,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET')
                if($action == 'INSERIR'){
                   
                 $respostaproduto = inserirProduto($_POST);
-               
-    
+
+                
                 
                 if (is_bool($respostaproduto)) {
 
@@ -203,18 +203,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET')
                     alert('REGISTRO INSIRIDO COM SUCESSO');
                     window.location.href = 'admprodutos.php';
                     </script>");
-                } elseif (is_array($respostaproduto)) {
 
+                } elseif (is_array($respostaproduto)) {
+                    
                     echo ("<script>
-                alert('" . $respostaproduto['message'] . "');
+                alert('" . $respostaproduto["'message'"] . "');
                 window.history.back();
                 </script>");
                 
                 }
 
-               }else{
-                   echo('erro');
-               }
+            }
         break;
 
     }

@@ -12,20 +12,41 @@ require_once('model/bd/Produtos.php');
 require_once('model/bd/config.php');
 function inserirProduto($produtos){
 
-if(!empty($produtos)){
+  $checkbox = (String) "0" ;
+  $preco = (String) "00";
+  $percentual = (string)"00";
 
-  if(!empty($produtos['txtproduto']) && !empty($produtos['txtpreco']) && !empty($produtos['rdoproduto']) && !empty($produtos['txtpercentual']) && !empty($produtos['detalhes']) ){
+  if(!empty($produtos['checkproduto'])){
+
+    $checkbox = $produtos['checkproduto'];
+
+  }else{
+    
+    $checkbox;
+  }
+  
+  if($produtos['txtpreco'] == "" || $produtos['txtpreco'] == "0"){
+     
+    $preco;
+ }
+
+
+
+
+ if(!empty($produtos)){
+  if(!empty($produtos['txtproduto']) && !empty($preco) && !empty($checkbox) && !empty($percentual) && !empty($produtos['txtdetalhes'])){
+
 
   $arreydados = array(
     
     "Nomeproduto" => $produtos['txtproduto'],
-    "Preco" => $produtos['txtpreco'],
-    "Destaque" => $produtos['rdoproduto'],
+    "Preco" => $preco,
+    "Destaque" => $checkbox,
     "Percentual" => $produtos['txtpercentual'],
-    "Detalhes" => $produtos['detalhes']
+    "Detalhes" => $produtos['txtdetalhes']
   );
-   
 
+ 
     if(insertProduto($arreydados)){
         
         return true;
@@ -37,9 +58,7 @@ if(!empty($produtos)){
   }else{
     return array(ERRO_CAMPOS_VAZIOS);
   }
-}
-
-
+ }
 }
 
 
