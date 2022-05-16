@@ -20,10 +20,10 @@
     
         <div id="categorias-cms">
          <p id="hellou">Bem-vindo</p>
-         <img src="./icons/novo-produto.png" alt=""> 
-         <a href="./admCategorias.php"><img src="./icons/categoria.png" alt=""> </a> 
-         <a href="./desheborCCT.php"><img src="./icons/contatos.png" alt=""> </a>
-         <a href="./UsuarioADM.php"><img id="usuarioimg" src="./icons/usuarios.png" alt=""></a> 
+         <a href="admprodutos.php"><img src="./icons/novo-produto.png" alt=""></a>
+         <a href="admCategorias.php"><img src="./icons/categoria.png" alt=""> </a> 
+         <a href="desheborCCT.php"><img src="./icons/contatos.png" alt=""> </a>
+         <a href="UsuarioADM.php"><img id="usuarioimg" src="./icons/usuarios.png" alt=""></a> 
          <a href="../index.html"><img src="./icons/logout.png" alt="" ></a>   
          <div id="opçoes-escolha" >
         <p>Adm. de Produtos</p>

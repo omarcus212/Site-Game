@@ -1,3 +1,26 @@
+<?php
+  
+
+  $form = (string)"router.php?componente=produto&action=inserir";
+
+  if(session_status()){
+      if(!empty($_SESSION['dadosProduto'])){
+          
+        $id = $_SESSION['dadosProduto']['id'];
+        $nome = $_SESSION['dadosProduto']['Nome'];
+        $preco = $_SESSION['dadosProduto']['Preco'];
+        $percentual = $_SESSION['dadosProduto']['Percentual'];
+        $detalhes = $_SESSION['dadosProduto']['Detalhes'];
+
+        $form = "router.php?componente=produto&action=editar&id=".$id;
+           unset($_SESSION['dadosProduto']);
+      }
+  }
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,7 +50,7 @@
         <div id="categorias-cms">
             <p id="hellou">Bem-vindo</p>
             <img src="./icons/novo-produto.png" alt="">
-            <img src="./icons/categoria.png" alt="">
+            <a href="./admCategorias.php"><img src="./icons/categoria.png" alt=""></a>
             <a href="./desheborCCT.php"><img src="./icons/contatos.png" alt=""></a>
             <a href="./UsuarioADM.php"><img id="usuarioimg" src="./icons/usuarios.png" alt=""></a>
             <a href="../index.html"><img src="./icons/logout.png" alt=""></a>
@@ -42,16 +65,16 @@
     <main>
 
         <div class="container">
-            <form action="router.php?componente=produto&action=inserir" method="POST" name="frmproduto">
+            <form action="<?=$form?>" method="POST" name="frmproduto">
                 <div class="nomeproduto">
-                    <span>Nome:</span><input type="text" name="txtproduto">
+                    <span>Nome:</span><input type="text" name="txtproduto" value="<?=isset($nome)?$nome:null?>">
                 </div>
 
         
                 <div class="imgproduto">
                     <div class="foto">
-                        <!-- <label> Escolha um arquivo: </label> <input type="file" name="flefoto"
-                            accept=".jpg, .png, .jpeg, .gif" > -->
+                        <label> Escolha um arquivo: </label> <input type="file" name="flefoto"
+                            accept=".jpg, .png, .jpeg, .gif" >
                     </div>
                     <img src="../imgs/horizon.jpg" alt="">
                 </div>
@@ -60,7 +83,7 @@
                 <div class="sobreproduto">
                     <div>
                         <label>Preço:</label>
-                        <input type="text" name="txtpreco">
+                        <input type="text" name="txtpreco" value="<?=isset($preco)?$preco:null?>">
                     </div>
                     <div>
                         <label>Destaque:</label>
@@ -69,16 +92,16 @@
                        
                     </div>
                     <div>
-                        <label>Percentual:</label><input type="text" name="txtpercentual">
+                        <label>Percentual:</label><input type="text" name="txtpercentual" value="<?=isset($percentual)?$percentual:null?>">
                     </div>
                 </div>
 
 
                 <div class="detalhes">
                     <span>Detalhes:</span> <textarea name="txtdetalhes" id="" cols="40" rows="10" class="areadetalhes"
-                        placeholder="digite aqui:"></textarea>
+                        placeholder="digite aqui:"><?=isset($detalhes)?$detalhes:null?></textarea>
                 </div>
-                <input type="submit" id="enviar">
+                <input type="submit" id="enviar" >
             </form>
         </div>
 
@@ -102,10 +125,10 @@
                 </tr>
 
                 <?php
-                    //   require_once('controller/');
-                    // //   $listprodutos = listarproduto();
+                      require_once('controller/ControllerProduto.php');
+                      $listprodutos = listarprodutos();
         
-                    //   foreach($listarprodutos as $item){
+                      foreach($listprodutos as $item){
         
                      
                    
@@ -113,25 +136,31 @@
 
                 <tr id="tblLinhas">
                     <td class="tblColunas registros">
-                        <!-- <?=$item['io']?> -->
+                       <?=$item['Nome']?> 
                     </td>
                     <td class="tblColunas registros">
-                        <!-- <?=$item['oi']?> -->
+                        <?=$item['preco']?> 
                     </td>
                     <td class="tblColunas registros">
-                        <!-- <?=$item['io']?> -->
+                        <?=$item['Detalhes']?>
                     </td>
                     <td class="tblColunas registros">
-                        <!-- <?=$item['oi']?> -->
+                        <?=$item['Percentual']?>
                     </td>
-                    <td class="tblColunas registros"></td>
+                    <td class="tblColunas registros">
+                        <?=$item['Destaque']?>
+                    </td>
+                    
 
 
                     <td class="tblColunas registros">
+                        <a href="router.php?componente=produto&action=buscar&id=<?=$item['id']?>">
                         <img src="img/edit.png" alt="Editar" title="Editar" class="editar">
+                        </a>
+                        
 
                         <a onclick="return confirm('Tem certeza que deseja excluir?')"
-                            href="router.php?componente=contatos&action=deletar&id=<?=$item['id']?>">
+                            href="router.php?componente=produto&action=deletar&id=<?=$item['id']?>">
                             <img src="img/trash.png" alt="Excluir" title="Excluir" class="excluir">
                         </a>
 
@@ -141,7 +170,7 @@
 
 
                 <?php
-                        //  }
+                         }
                       ?>
 
 

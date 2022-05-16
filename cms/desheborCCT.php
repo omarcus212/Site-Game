@@ -21,10 +21,10 @@
     
         <div id="categorias-cms">
          <p id="hellou">Bem-vindo</p>
-         <img src="./icons/novo-produto.png" alt=""> 
-         <a href="./admCategorias.php"><img src="./icons/categoria.png" alt=""></a>
-         <img src="./icons/contatos.png" alt=""> 
-         <a href="./UsuarioADM.php"><img id="usuarioimg" src="./icons/usuarios.png" alt=""></a> 
+         <a href="admprodutos.php"><img src="./icons/novo-produto.png" alt=""></a>
+         <a href="admCategorias.php"><img src="./icons/categoria.png" alt=""></a>
+         <img src="icons/contatos.png" alt=""> 
+         <a href="UsuarioADM.php"><img id="usuarioimg" src="./icons/usuarios.png" alt=""></a> 
          <a href="../index.html"><img src="./icons/logout.png" alt="" ></a>  
          <div id="opçoes-escolha" >
         <p>Adm. de Produtos</p>
@@ -72,7 +72,10 @@
                 
                
                 <td class="tblColunas registros">
-                        <img src="img/edit.png" alt="Editar" title="Editar" class="editar">
+                    <a href="router.php?componente=contatos&action=buscar&id=<?=$item['id']?>">
+                    <img src="img/edit.png" alt="Editar" title="Editar" class="editar">
+                    </a>
+                       
 
                         <a onclick="return confirm('Tem certeza que deseja excluir?')" href="router.php?componente=contatos&action=deletar&id=<?=$item['id']?>">
                         <img src="img/trash.png" alt="Excluir" title="Excluir" class="excluir">

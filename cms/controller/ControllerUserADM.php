@@ -42,9 +42,6 @@
         }
 }
 
-
-
-
 function listarUseradm(){
 
     $dados = selectAllUserAdm();
@@ -57,8 +54,6 @@ function listarUseradm(){
     }
 
 }
-
-
 
 function excluiruserAdm($iduser){
 

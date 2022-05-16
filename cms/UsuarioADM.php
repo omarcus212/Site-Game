@@ -45,7 +45,7 @@
     
         <div id="categorias-cms">
          <p id="hellou">Bem-vindo</p>
-         <img src="./icons/novo-produto.png" > 
+         <a href="admprodutos.php"><img src="./icons/novo-produto.png" alt=""></a>
          <a href="admCategorias.php"><img src="./icons/categoria.png" ></a>
          <a href="desheborCCT.php"><img src="./icons/contatos.png" ></a>
          <img id="usuarioimg" src="./icons/usuarios.png"> 
