@@ -2,6 +2,7 @@
   
 
   $form = (string)"router.php?componente=produto&action=inserir";
+  $foto = (string)'sem-foto.gif';  
 
   if(session_status()){
       if(!empty($_SESSION['dadosProduto'])){
@@ -11,6 +12,8 @@
         $preco = $_SESSION['dadosProduto']['Preco'];
         $percentual = $_SESSION['dadosProduto']['Percentual'];
         $detalhes = $_SESSION['dadosProduto']['Detalhes'];
+        $foto=     $_SESSION['dadosContatos']['Foto'];
+        $destaque = $_SESSION['dadosProduto']['Destaques'];
 
         $form = "router.php?componente=produto&action=editar&id=".$id;
            unset($_SESSION['dadosProduto']);
@@ -73,8 +76,8 @@
         
                 <div class="imgproduto">
                     <div class="foto">
-                        <label> Escolha um arquivo: </label> <input type="file" name="flefoto"
-                            accept=".jpg, .png, .jpeg, .gif" >
+                        <label> Escolha um arquivo: </label> <input type="file" name="flefoto" 
+                            accept=".jpg, .png, .jpeg, .gif" >                        <!-- a fazer-->
                     </div>
                     <img src="../imgs/horizon.jpg" alt="">
                 </div>
@@ -88,7 +91,9 @@
                     <div>
                         <label>Destaque:</label>
                         <span>Sim</span>
-                        <input type="checkbox" name="checkproduto" value="1">
+                        <input type="checkbox" name="checkprodutos" value="1">
+                        <span>não</span>
+                      <input type="checkbox" name="checkproduton" value="0">     <!-- a fazer-->
                        
                     </div>
                     <div>
@@ -148,7 +153,7 @@
                         <?=$item['Percentual']?>
                     </td>
                     <td class="tblColunas registros">
-                        <?=$item['Destaque']?>
+                        <?=$item['Destaque'] == '0'?$item['Destaque']:'Sim'?:'Não'?>
                     </td>
                     
 

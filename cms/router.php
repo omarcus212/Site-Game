@@ -36,9 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET')
                   </script>");
                 }
             }
-            break;
-
-
+        break;
+ 
 
 
         case 'CATEGORIAS';
@@ -109,7 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET')
                   </script>");
                 }
             }
-            break;
+        break;
 
 
        
@@ -188,11 +187,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET')
             }
 
         break;
-         
+
+        
+        
         case 'PRODUTO';
-        require_once('./controller/ControllerProduto.php');
+         require_once('./controller/ControllerProduto.php');
                if($action == 'INSERIR'){
                   
+
                 $respostaproduto = inserirProduto($_POST);
 
             
@@ -211,6 +213,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET')
                 </script>");
                 
                 }
+
+
 
             }else if($action == 'BUSCAR'){
 

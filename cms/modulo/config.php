@@ -18,6 +18,13 @@ const ERRO_AO_EXCLUIR = "'idErro' => 3,'message' => 'o banco de dados nao pode e
 
 
 
+// * Data : 16/04/22
+
+//foto upload//
+//LIMITACAO DE 5MB PARA UPLOAD DE IMGS;  
+const MAX_FILE_UPLOAD = 5120;
+const EXT_FILE_UPLOAD = array("image/jpg", "image/png", "image/jpeg", "image/gif");
+const DIRETORIO_FILE_UPLOAD = "arquivos/";
 
 ?>
 

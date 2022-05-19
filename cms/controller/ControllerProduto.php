@@ -9,19 +9,21 @@
  * versao : 1.0
  */
 require_once('model/bd/Produtos.php');
-require_once('model/bd/config.php');
-function inserirProduto($produtos){
+require_once('modulo/config.php');
 
+function inserirProduto($produtos){
+  $resultfoto = null;
   $checkbox = (String) "0" ;
   $preco = (String) "0";
   $percentual = (string)"0";
 
-  if(!empty($produtos['checkproduto'])){
+  if(!empty($produtos['checkprodutos'])){
 
-    $checkbox = $produtos['checkproduto'];
-  }else{
+    $checkbox = $produtos['checkprodutos'];
+
+  }else if(!empty($produtos['checkproduton']) || $produtos['checkproduton'] == '' || $produtos['checkprodutos'] == ''){
     
-    $checkbox;
+    $checkbox = $produtos['checkproduton'];
   }
    
   if(!empty($produtos['txtpreco'])){
@@ -45,7 +47,6 @@ function inserirProduto($produtos){
  if(!empty($produtos)){
   if(!empty($produtos['txtproduto']) && $preco >= '0' && $checkbox >= '0' &&  $percentual >='0' && !empty($produtos['txtdetalhes'])){
 
-  
   $arreydados = array(
     
     "Nomeproduto" => $produtos['txtproduto'],
