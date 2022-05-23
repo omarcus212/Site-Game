@@ -10,7 +10,7 @@
  */
 
  require_once('./model/bd/UserAdm.php');
- require_once('./model/bd/config.php');
+ require_once('./modulo/config.php');
 
  function inserirUserAdm($useradm){
 

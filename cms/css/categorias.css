@@ -1,4 +1,15 @@
 
+
+#categorias-cms{
+ width: 100%;
+ height: 200px;
+ display: flex;
+ flex-direction: row;
+ white-space: unset;
+ background-color: #6d6d6d;
+ margin-bottom: 100px;
+}
+
 .containerCategoria{
     width: 60%;
     height: 500px;

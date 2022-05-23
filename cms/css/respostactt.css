@@ -1,5 +1,5 @@
 #consultaDeDados{
-    width: 1050px;
+    width: 1100px;
     min-height: 300px;
     height: auto;
     border: solid 1px black;
@@ -15,7 +15,7 @@
     height: auto;
 }
 #tblTitulo{
-    width: 100%;
+    width: 109%;
     height: 30px;
     background-color: rgb(26, 26, 26);
     color: #ffffff;
@@ -29,13 +29,13 @@
     margin: auto;
 }
 #tblLinhas{
-    width: 100%;
+    width: 105%;
     height: 50px;
     color: rgb(0, 0, 0);
     border: solid 1px black;
 }
 .tblColunas{
-    width: 50px;
+    width: 100px;
     height: 30px;
     text-align: center;
     background-color: #ffffff;
@@ -57,6 +57,7 @@
     height: 30px;
     margin-left: auto;
     margin-right: auto;
+   
     
 }
 
@@ -76,7 +77,7 @@
 
 
 #visualizar{
-    width: 1000px;
+    width: 1100px;
     height: 800px;
     border: solid 1px #f81414;
     margin-left: auto;
@@ -93,7 +94,7 @@
 }
 
 #visualizar table tr td{
-    width: 50%;
+    width: 70%;
     border: solid 1px #cccccc;
 }
 
@@ -126,9 +127,14 @@
 }
 
 #modal{
-    width: 50vw;
+    width: 55vw;
     height: 60vh;
     background-color: #ffffff;
 /*    margin: auto;*/
+}
+
+.fotoimg{
+    width: 100px;
+    height: 80px;
 }
 

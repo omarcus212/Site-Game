@@ -195,8 +195,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET')
                if($action == 'INSERIR'){
                   
 
-                $respostaproduto = inserirProduto($_POST);
-
+              
+                 if(isset($_FILES) && !empty($_FILES)){
+                
+                    $respostaproduto = inserirProduto($_POST,$_FILES);
+                 }else{
+                 
+                    $respostaproduto = inserirProduto($_POST,null);
+                 }
+         
             
                 if (is_bool($respostaproduto)) {
 
@@ -228,7 +235,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET')
             }else if($action == 'DELETAR'){
 
                 $idproduto = $_GET['id'];
-                $respostaP = excluirProduto($idproduto);
+                $foto = $_GET['foto'];
+           
+                $arraydados = array(
+                           "id" => $idproduto,
+                           "fotoname" => $foto        
+                );
+
+                $respostaP = excluirProduto($arraydados);
                 
 
                 if (is_bool($respostaP)){
@@ -249,8 +263,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET')
             }else if($action == 'EDITAR'){
 
                 $id = $_GET['id'];
+                $foto = $_GET['foto'];
+           
+                $arraydados = array(
+                           "id" => $id,
+                           "fotoname" => $foto ,
+                           "file" => $_FILES       
+                );
             
-                $respostaproduto = editarProduto($_POST,$id);
+                $respostaproduto = editarProduto($_POST,$arraydados);
                 
                 if (is_bool($respostaproduto)) {
 
@@ -261,7 +282,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET')
                 }elseif (is_array($respostaproduto)) {
 
                     echo ("<script>
-                  alert('" . $$respostaproduto['message'] . "');
+                  alert('" . $respostaproduto['message'] . "');
                  window.history.back();
                   </script>");
                 }

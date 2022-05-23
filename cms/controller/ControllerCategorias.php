@@ -10,7 +10,7 @@
  * versao : 1.0
  */
 require_once('./model/bd/Categorias.php');
-require_once('./model/bd/config.php');
+require_once('./modulo/config.php');
 
 function inserirCategoria($categoria)
 {

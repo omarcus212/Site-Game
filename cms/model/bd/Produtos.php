@@ -20,7 +20,7 @@ function insertProduto($dados)
 
      $sql = "insert into tblproduto (nome,preco,detalhes,destaques,percentual,foto) 
     value 
-    ('" . $dados["Nomeproduto"] . "','" . $dados["Preco"] . "','" . $dados["Detalhes"] . "','" . $dados["Destaque"] . "','" . $dados["Percentual"] . "');";
+    ('" . $dados["Nomeproduto"] . "','" . $dados["Preco"] . "','" . $dados["Detalhes"] . "','" . $dados["Destaque"] . "','" . $dados["Percentual"] . "','" . $dados["foto"] . "');";
 
 
      if (mysqli_query($conexao, $sql)) {
@@ -54,13 +54,21 @@ function selectAllProdutos()
                     "preco" => $dados['preco'],
                     "Detalhes" => $dados['detalhes'],
                     "Destaque" => $dados['destaques'],
-                    "Percentual" => $dados['percentual']
+                    "Percentual" => $dados['percentual'],
+                    "Foto"   => $dados['foto']
 
                );
           }
+       
 
           fecharConexaoMyslq($conexao);
-          return $arreydados;
+          
+          if(isset($arreydados)){
+               return $arreydados;
+            }else{
+               return false;
+            }
+         
      }
 }
 
@@ -102,12 +110,19 @@ function selectbyIdproduto($id)
                     "Nome" => $dados['nome'],
                     "Preco" => $dados['preco'],
                     "Detalhes" => $dados['detalhes'],
+                    "Foto"  =>$dados['foto'],
                     "Percentual" => $dados['percentual']
 
                );
           }
           fecharConexaoMyslq($conexao);
-          return $arreydados;
+
+          if(isset($arreydados)){
+               return $arreydados;
+            }else{
+               return false;
+            }
+         
      }
 }
 
@@ -118,16 +133,12 @@ function updateProdutos($dados)
      $conexao = abrirConexaoMyslq();
      $sql = "update tblproduto set
    
-      nome = '" . $dados{
-          'Nome'} . "',
-      preco = '" . $dados{
-          'Preco'} . "',
-      destaques = '" . $dados{
-          'Destaque'} . "',
-      percentual = '" . $dados{
-          'Percentual'} . "',
-      detalhes = '" . $dados{
-          'Detalhes'} . "'
+      nome = '" . $dados{'Nome'} . "',
+      preco = '" . $dados{'Preco'} . "',
+      destaques = '" . $dados{'Destaque'} . "',
+      percentual = '" . $dados{'Percentual'} . "',
+      detalhes = '" . $dados{'Detalhes'} . "',
+      foto = '" . $dados{'Foto'} . "'
       where idproduto =" . $dados['id'];
 
      if (mysqli_query($conexao, $sql)) {

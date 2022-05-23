@@ -11,7 +11,7 @@
 require_once('model/bd/Produtos.php');
 require_once('modulo/config.php');
 
-function inserirProduto($produtos){
+function inserirProduto($produtos,$file){
   $resultfoto = null;
   $checkbox = (String) "0" ;
   $preco = (String) "0";
@@ -21,9 +21,8 @@ function inserirProduto($produtos){
 
     $checkbox = $produtos['checkprodutos'];
 
-  }else if(!empty($produtos['checkproduton']) || $produtos['checkproduton'] == '' || $produtos['checkprodutos'] == ''){
-    
-    $checkbox = $produtos['checkproduton'];
+  }else{
+    $checkbox;
   }
    
   if(!empty($produtos['txtpreco'])){
@@ -47,16 +46,30 @@ function inserirProduto($produtos){
  if(!empty($produtos)){
   if(!empty($produtos['txtproduto']) && $preco >= '0' && $checkbox >= '0' &&  $percentual >='0' && !empty($produtos['txtdetalhes'])){
 
+
+    if($file['flefoto']['name'] != null){
+      require_once('modulo/upload.php');      
+      $resultfoto = uploand($file['flefoto']);
+
+      if(is_array($resultfoto)){
+          require_once('modulo/config.php'); 
+         
+          return $resultfoto;
+      }
+    }
+
   $arreydados = array(
     
     "Nomeproduto" => $produtos['txtproduto'],
     "Preco" => $preco,
     "Destaque" => $checkbox,
     "Percentual" => $percentual,
+    "foto" => $resultfoto,
     "Detalhes" => $produtos['txtdetalhes']
   );
 
- 
+
+
     if(insertProduto($arreydados)){
         
         return true;
@@ -94,18 +107,30 @@ function Buscaridproduto($id){
            return false;
         }
  }else{
-  return array(ID_INVALIDO);
+        return array(ID_INVALIDO);
  }
 
 }
 
 
-function excluirProduto($idproduto){
+function excluirProduto($arreydados){
+ $idproduto = $arreydados['id'];
+ $foto = $arreydados['fotoname'];
+
   if(!empty($idproduto) & $idproduto != 0 & is_numeric($idproduto)){
 
     if(deletarProduto($idproduto)){
+      
+      if($foto != null ){
+
+        unlink(DIRETORIO_FILE_UPLOAD.$foto);
+          
+        return true;
+
+    }else{
      
-       return true;
+        return true;
+    }
 
     }else{
        return array('message' => 'nao foi possivel excluir os dados');
@@ -116,26 +141,27 @@ function excluirProduto($idproduto){
 }
 
 
-function editarProduto($dados,$id){
+function editarProduto($dados,$arreydados){
 
-
-    $checkbox = (String) "0" ;
-    $preco = (String) "0";
-    $percentual = (string)"0";
+    $statusfoto = (boolean)false;  
+        
+    $id = $arreydados['id'];
+    $namefoto = $arreydados['foto'];
+    $file = $arreydados['file'];
 
     if(!empty($dados['checkproduto'])){
 
       $checkbox = $dados['checkproduto'];
     }else{
       
-      $checkbox;
+      $checkbox ='0';
     }
     
     if(!empty($dados['txtpreco'])){
       $preco = $dados['txtpreco'];
       
     }else{
-      $preco;
+      $preco ='0';
 
     }  
 
@@ -144,7 +170,7 @@ function editarProduto($dados,$id){
       $percentual = $dados['txtpercentual'];
     }else{
 
-      $percentual;
+      $percentual ='0';
 
     }  
 
@@ -152,6 +178,16 @@ function editarProduto($dados,$id){
     if(!empty($dados)){
     if(!empty($dados['txtproduto']) && $preco >= '0' && $checkbox >= '0' &&  $percentual >='0' && !empty($dados['txtdetalhes'])){
       if($id != 0 & !empty($id) & is_numeric($id)){
+
+        if($file['flefoto']['name'] != null){
+          require_once('modulo/upload.php');      
+          $novafoto = uploand($file['flefoto']); 
+          $statusfoto = true;
+      }else{
+          $novafoto = $namefoto;                 //se nova foto tiver null peranence as msm foto que esta no bd;
+      }
+
+
     $arreydados = array(
       
       "id" => $id,
@@ -159,11 +195,16 @@ function editarProduto($dados,$id){
       "Preco" => $preco,
       "Destaque" => $checkbox,
       "Percentual" => $percentual,
+      "Foto" => $novafoto,
       "Detalhes" => $dados['txtdetalhes']
     );
 
+
       if(updateProdutos($arreydados)){
-          
+        if($resultfoto){
+
+          unlink(DIRETORIO_FILE_UPLOAD.$foto);
+      }
           return true;
 
       }else{
@@ -176,7 +217,8 @@ function editarProduto($dados,$id){
      }
 
     }else{
-      return array(ERRO_INSERIR_DADOS);;
+      
+      return array(ERRO_INSERIR_DADOS);
     }
     
     }

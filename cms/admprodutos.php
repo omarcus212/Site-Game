@@ -1,6 +1,6 @@
 <?php
   
-
+  require_once('modulo/config.php');
   $form = (string)"router.php?componente=produto&action=inserir";
   $foto = (string)'sem-foto.gif';  
 
@@ -12,10 +12,10 @@
         $preco = $_SESSION['dadosProduto']['Preco'];
         $percentual = $_SESSION['dadosProduto']['Percentual'];
         $detalhes = $_SESSION['dadosProduto']['Detalhes'];
-        $foto=     $_SESSION['dadosContatos']['Foto'];
-        $destaque = $_SESSION['dadosProduto']['Destaques'];
+        $foto    =  $_SESSION['dadosProduto']['Foto'];
 
-        $form = "router.php?componente=produto&action=editar&id=".$id;
+
+        $form = "router.php?componente=produto&action=editar&id=".$id."&foto=".$foto;;
            unset($_SESSION['dadosProduto']);
       }
   }
@@ -68,7 +68,7 @@
     <main>
 
         <div class="container">
-            <form action="<?=$form?>" method="POST" name="frmproduto">
+            <form action="<?=$form?>" method="POST" name="frmproduto" enctype="multipart/form-data"> <!-- enctype = excepcional  para poder enviar arquivos que estao no sue formulario  -->
                 <div class="nomeproduto">
                     <span>Nome:</span><input type="text" name="txtproduto" value="<?=isset($nome)?$nome:null?>">
                 </div>
@@ -77,9 +77,9 @@
                 <div class="imgproduto">
                     <div class="foto">
                         <label> Escolha um arquivo: </label> <input type="file" name="flefoto" 
-                            accept=".jpg, .png, .jpeg, .gif" >                        <!-- a fazer-->
+                            accept=".jpg, .png, .jpeg, .gif" >                        
                     </div>
-                    <img src="../imgs/horizon.jpg" alt="">
+                    <img src="<?=DIRETORIO_FILE_UPLOAD.$foto?>" alt="">
                 </div>
 
 
@@ -93,7 +93,7 @@
                         <span>Sim</span>
                         <input type="checkbox" name="checkprodutos" value="1">
                         <span>não</span>
-                      <input type="checkbox" name="checkproduton" value="0">     <!-- a fazer-->
+                      <input type="checkbox" name="checkproduton" value="0">     
                        
                     </div>
                     <div>
@@ -120,10 +120,11 @@
                 </tr>
                 <tr id="tblLinhas">
                     <td class="tblColunas destaque" id="caixanome"> Nome </td>
-                    <td class="tblColunas destaque" id="caixaemail"> preco </td>
-                    <td class="tblColunas destaque" id="caixaobs"> detalhes </td>
-                    <td class="tblColunas destaque" id="caixanada"> imagem</td>
-                    <td class="tblColunas destaque" id="caixanada"> desconto</td>
+                    <td class="tblColunas destaque" id="caixaemail"> Preco </td>
+                    <td class="tblColunas destaque" id="caixaobs"> Detalhes </td>
+                    <td class="tblColunas destaque" id="caixanada"> Desconto</td>
+                    <td class="tblColunas destaque" id="caixanada"> Destaque</td>
+                    <td class="tblColunas destaque" id="caixanada"> Imagem</td>
                     <td class="tblColunas destaque" id="caixanada"> </td>
 
 
@@ -155,6 +156,10 @@
                     <td class="tblColunas registros">
                         <?=$item['Destaque'] == '0'?$item['Destaque']:'Sim'?:'Não'?>
                     </td>
+
+                    <td class="tblColunas registros">
+                        <img src="<?=DIRETORIO_FILE_UPLOAD.$foto?>" alt="" class="fotoimg">
+                    </td>
                     
 
 
@@ -165,7 +170,7 @@
                         
 
                         <a onclick="return confirm('Tem certeza que deseja excluir?')"
-                            href="router.php?componente=produto&action=deletar&id=<?=$item['id']?>">
+                            href="router.php?componente=produto&action=deletar&id=<?=$item['id']?>&foto=<?=$foto?>">
                             <img src="img/trash.png" alt="Excluir" title="Excluir" class="excluir">
                         </a>
 

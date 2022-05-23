@@ -4,12 +4,17 @@
     box-sizing: border-box;
 }
 
+body{
+    background-color: #6d6d6d;
+}
+
 header{
     width: 100%;
 }
 
 #div-menu{
-   width: 100%;
+   min-width: 105%;
+   width: auto;
    background-color: #242424;
    height: 150px;
   
@@ -17,7 +22,7 @@ header{
 } 
 
 #div-menu h1{
- font-size: 40px;
+    font-size: 40px;
 }
 
 #conteudo h3{
