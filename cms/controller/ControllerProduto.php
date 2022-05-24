@@ -8,11 +8,11 @@
  * 
  * versao : 1.0
  */
-require_once('model/bd/Produtos.php');
-require_once('modulo/config.php');
+require_once('./model/bd/Produtos.php');
+require_once('./modulo/config.php');
 
 function inserirProduto($produtos,$file){
-  $resultfoto = null;
+  $resultfoto = (string)null;
   $checkbox = (String) "0" ;
   $preco = (String) "0";
   $percentual = (string)"0";
@@ -53,7 +53,7 @@ function inserirProduto($produtos,$file){
 
       if(is_array($resultfoto)){
           require_once('modulo/config.php'); 
-         
+  
           return $resultfoto;
       }
     }
@@ -143,85 +143,91 @@ function excluirProduto($arreydados){
 
 function editarProduto($dados,$arreydados){
 
-    $statusfoto = (boolean)false;  
-        
-    $id = $arreydados['id'];
-    $namefoto = $arreydados['foto'];
-    $file = $arreydados['file'];
+  $statusfoto = (boolean)false;  
+  $id = $arreydados['id'];
+  $foto = $arreydados['fotoname'];
+  $file = $arreydados['file'];
 
-    if(!empty($dados['checkproduto'])){
+  if(!empty($dados['checkprodutos'])){
 
-      $checkbox = $dados['checkproduto'];
-    }else{
-      
-      $checkbox ='0';
-    }
+    $checkbox = $dados['checkprodutos'];
+
+   }else{
+    $checkbox = '0';
+  }
+   
+  if(!empty($dados['txtpreco'])){
+    $preco = $dados['txtpreco'];
     
-    if(!empty($dados['txtpreco'])){
-      $preco = $dados['txtpreco'];
-      
+   }else{
+    $preco = '0';
+
+  }  
+
+
+  if(!empty($dados['txtpercentual'])){
+    $percentual = $dados['txtpercentual'];
+    }else if ($dados['txtpercentual'] == ''){
+  
+    $percentual = '0';
+
     }else{
-      $preco ='0';
+     $percentual = '0';
 
-    }  
+  }  
 
+  
+ if(!empty($dados)){
+  if(!empty($dados['txtproduto']) && $preco >= '0' && $checkbox >= '0' &&  $percentual >='0' && !empty($dados['txtdetalhes'])){
+    if(!empty($id) && $id != 0 && is_numeric($id)){
 
-    if(!empty($dados['txtpercentual'])){
-      $percentual = $dados['txtpercentual'];
-    }else{
-
-      $percentual ='0';
-
-    }  
-
-
-    if(!empty($dados)){
-    if(!empty($dados['txtproduto']) && $preco >= '0' && $checkbox >= '0' &&  $percentual >='0' && !empty($dados['txtdetalhes'])){
-      if($id != 0 & !empty($id) & is_numeric($id)){
-
-        if($file['flefoto']['name'] != null){
+      if($file['flefoto']['name'] != null){
           require_once('modulo/upload.php');      
           $novafoto = uploand($file['flefoto']); 
           $statusfoto = true;
       }else{
-          $novafoto = $namefoto;                 //se nova foto tiver null peranence as msm foto que esta no bd;
+          $novafoto = $foto;               
       }
+                 
 
-
-    $arreydados = array(
-      
-      "id" => $id,
-      "Nome" => $dados['txtproduto'],
-      "Preco" => $preco,
-      "Destaque" => $checkbox,
-      "Percentual" => $percentual,
-      "Foto" => $novafoto,
-      "Detalhes" => $dados['txtdetalhes']
-    );
-
-
+      $arreydados = array(
+         "id" => $id,
+        "nome" => $dados['txtproduto'],
+        "preco" => $preco,
+        "destaque" => $checkbox,
+        "percentual" => $percentual,
+        "foto" => $novafoto,
+        "detalhes" => $dados['txtdetalhes']
+      );
+   
+        //chamanda e mandando para a funcao insert la na model
       if(updateProdutos($arreydados)){
-        if($resultfoto){
+        
+          //validacao para verificar se sera necessario para apagar a foto antiga
+          if($statusfoto){
 
-          unlink(DIRETORIO_FILE_UPLOAD.$foto);
-      }
+              unlink(DIRETORIO_FILE_UPLOAD.$foto);
+          }
           return true;
 
       }else{
-          return array('idErro ' => 1, 
-          'message' => 'nao foi possivel atualizar os dados' );
+                 
+              return array('idErro ' => 1, 
+              'message' => 'nao foi possivel atualizar os dados' );     
       }
 
-    }else{
-      return array('idErro' =>2,'message' => 'dados invalido');
-     }
-
-    }else{
-      
-      return array(ERRO_INSERIR_DADOS);
-    }
+      }else{               
+        return array('idErro ' => 4, 
+        'message' => 'id inexistente' );     
+      }
     
+     }else {
+
+     return array('idErro ' => 2,  'message' => 'existem campos obrigatorios que nao foram preenchidos');
+
     }
+
+ }
 
 }
-?>
+

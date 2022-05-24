@@ -42,19 +42,26 @@ if(session_status()){
             </div>
         </nav>
 
-        <div id="categorias-cms">
-            <p id="hellou">Bem-vindo</p>
-            <a href="admprodutos.php"><img src="./icons/novo-produto.png" alt=""></a>
-            <img src="icons/categoria.png" alt="">
+        
+        <div class="containericons">
+            <div class="boxicons">
+            <a href="admprodutos.php"><img src="./icons/novo-produto.png" alt="" id="imgpo"></a>
+                <p> Produtos</p>
+            </div>
+           
+            <div class="boxicons">
             <a href="desheborCCT.php"><img src="./icons/contatos.png" alt=""></a> 
-            <a href="UsuarioADM.php"><img id="usuarioimg" src="./icons/usuarios.png" alt=""></a> 
-            <a href="../index.html"><img src="./icons/logout.png" alt="" ></a>  
-            <div id="opçoes-escolha">
-                <p>Adm. de Produtos</p>
-                <p>Adm. de Categorias</p>
                 <p>Contatos</p>
-                <p>Usuários</p>
+            </div>
 
+            <div class="boxicons" id="ntxleft">
+            <a href="UsuarioADM.php"><img id="usuarioimg" src="./icons/usuarios.png" alt=""></a> 
+                <p>Usuários</p>
+            </div>
+
+            <div class="boxicons">
+            <a href="../index.html"><img src="./icons/logout.png" alt="" id="saida"></a>  
+                <p>Sair</p>
             </div>
         </div>
     </header>
@@ -71,10 +78,7 @@ if(session_status()){
                     <input type="text" id="campoCategotia" name="txtCategoria" value="<?=isset($nomecategoria)?$nomecategoria:null?>" placeholder="Digite a Categoria">
                     <input type="submit" class="btncategoria" value="Salvar">
                 </form>
-
-
             </div>
-
 
 
         </section>

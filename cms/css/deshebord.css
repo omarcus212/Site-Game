@@ -48,6 +48,8 @@ header{
     display: flex;
     color: #fddb00;
     gap: 70px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
       
 }
 
@@ -67,6 +69,7 @@ header{
     height: 100px;
     margin-left: 200px;
     color: #ffffff;
+   
 }
 
 #conteudo h1{

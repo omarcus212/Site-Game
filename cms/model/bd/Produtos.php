@@ -128,25 +128,32 @@ function selectbyIdproduto($id)
 
 function updateProdutos($dados)
 {
-     $reposta = (bool) false;
+    
 
      $conexao = abrirConexaoMyslq();
-     $sql = "update tblproduto set
-   
-      nome = '" . $dados{'Nome'} . "',
-      preco = '" . $dados{'Preco'} . "',
-      destaques = '" . $dados{'Destaque'} . "',
-      percentual = '" . $dados{'Percentual'} . "',
-      detalhes = '" . $dados{'Detalhes'} . "',
-      foto = '" . $dados{'Foto'} . "'
-      where idproduto =" . $dados['id'];
-
+     $sql = "update tblproduto set   
+      nome       =  '".$dados['nome']."',
+      preco      =  '" .$dados['preco']."',
+      detalhes   =  '".$dados['detalhes']."',
+      destaques  =  '".$dados['destaque']."',
+      percentual =  '".$dados['percentual']."',
+      foto       =  '".$dados['foto']."'
+      where idproduto =". $dados['id'];
+    
+       
      if (mysqli_query($conexao, $sql)) {
           if (mysqli_affected_rows($conexao)) {
-               $reposta =  true;
-          }
-
+               fecharConexaoMyslq($conexao);
+                return true;
+              
+          }else{
+            
+              fecharConexaoMyslq($conexao);
+               return false;
+           }           
+         
+     }else{
           fecharConexaoMyslq($conexao);
-          return $reposta;
+          return false;
      }
 }

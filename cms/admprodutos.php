@@ -1,8 +1,9 @@
 <?php
   
   require_once('modulo/config.php');
+
   $form = (string)"router.php?componente=produto&action=inserir";
-  $foto = (string)'sem-foto.gif';  
+  $foto = (string)'semfoto.png';  
 
   if(session_status()){
       if(!empty($_SESSION['dadosProduto'])){
@@ -92,8 +93,7 @@
                         <label>Destaque:</label>
                         <span>Sim</span>
                         <input type="checkbox" name="checkprodutos" value="1">
-                        <span>não</span>
-                      <input type="checkbox" name="checkproduton" value="0">     
+                       
                        
                     </div>
                     <div>
@@ -158,7 +158,7 @@
                     </td>
 
                     <td class="tblColunas registros">
-                        <img src="<?=DIRETORIO_FILE_UPLOAD.$foto?>" alt="" class="fotoimg">
+                        <img src="<?=DIRETORIO_FILE_UPLOAD.$item['Foto']?>" alt="" class="fotoimg">
                     </td>
                     
 

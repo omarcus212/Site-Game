@@ -270,17 +270,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET')
                            "fotoname" => $foto ,
                            "file" => $_FILES       
                 );
-            
+                       
                 $respostaproduto = editarProduto($_POST,$arraydados);
                 
                 if (is_bool($respostaproduto)) {
-
+                             
                     echo ("<script>
                 alert('REGISTRO ATUALIZADO COM SUCESSO');
                 window.location.href = 'admprodutos.php';
                 </script>");
                 }elseif (is_array($respostaproduto)) {
-
+                    
                     echo ("<script>
                   alert('" . $respostaproduto['message'] . "');
                  window.history.back();
