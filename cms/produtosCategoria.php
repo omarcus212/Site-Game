@@ -3,10 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/menuprt.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="css/prtcategoria.css">
     <link rel="stylesheet" href="css/respostactt.css">
     <link rel="stylesheet" href="css/menuprt.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 
@@ -45,8 +46,8 @@
             </div>
 
             <div class="boxicons" id="ntxleft">
-                <a href="./produtosCategoria.php"><img id="usericons" src="./icons/produtocategoria.png" alt="">
-                    <p>Produtos/categoria</p>
+                <a href="./desheborCCT.php"><img id="usericons" src="./icons/contatos.png" alt="">
+                    <p>Contatos</p>
                 </a>
             </div>
 
@@ -69,6 +70,16 @@
 
     <main>
 
+        <div class="tablecont">
+            <span class="ttlite">
+                <p>Categoria/produtos</p>
+            </span>
+            <form action="inserir" method="post">
+                <select name="categoriaProdut" id="categoriaProdut"></select>
+                <select name="categoriaPr" id="cateProduto"></select>
+                <input type="submit" id="ctpd" value="salvar">
+            </form>
+        </div>
 
         <div id="consultaDeDados">
             <table id="tblConsulta">
@@ -86,48 +97,36 @@
 
                 </tr>
 
-                <?php
-                require_once('controller/controllerContatos.php');
-                $listcontatos = listarcontatos();
 
-                foreach ($listcontatos as $item) {
-
-
-
-                ?>
-
-                    <tr id="tblLinhas">
-                        <td class="tblColunas registros"><?= $item['Nome'] ?></td>
-                        <td class="tblColunas registros"><?= $item['Email'] ?></td>
-                        <td class="tblColunas registros"><?= $item['Obs'] ?></td>
+                <tr id="tblLinhas">
+                    <td class="tblColunas registros"></td>
+                    <td class="tblColunas registros"></td>
+                    <td class="tblColunas registros"></td>
 
 
-                        <td class="tblColunas registros">
-                            <a href="router.php?componente=contatos&action=buscar&id=<?= $item['id'] ?>">
-                                <img src="img/edit.png" alt="Editar" title="Editar" class="editar">
-                            </a>
+                    <td class="tblColunas registros">
+                        <a href="router.php?componente=contatos&action=buscar&id=<?= $item['id'] ?>">
+                            <img src="img/edit.png" alt="Editar" title="Editar" class="editar">
+                        </a>
 
 
-                            <a onclick="return confirm('Tem certeza que deseja excluir?')" href="router.php?componente=contatos&action=deletar&id=<?= $item['id'] ?>">
-                                <img src="img/trash.png" alt="Excluir" title="Excluir" class="excluir">
-                            </a>
+                        <a onclick="return confirm('Tem certeza que deseja excluir?')" href="router.php?componente=contatos&action=deletar&id=<?= $item['id'] ?>">
+                            <img src="img/trash.png" alt="Excluir" title="Excluir" class="excluir">
+                        </a>
 
-                            <img src="img/search.png" alt="Visualizar" title="Visualizar" class="pesquisar">
-                        </td>
-                    </tr>
+                        <img src="img/search.png" alt="Visualizar" title="Visualizar" class="pesquisar">
+                    </td>
+                </tr>
 
 
-                <?php
-                }
-                ?>
 
 
 
 
             </table>
         </div>
-    </main>
 
+    </main>
 </body>
 
 </html>

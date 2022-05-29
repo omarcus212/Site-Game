@@ -1,11 +1,9 @@
 
-
 #categorias-cms{
  width: 100%;
  height: 200px;
  display: flex;
  white-space: unset;
- background-color: #d13636;
  margin-bottom: 100px;
  padding: 20px;
 }
@@ -47,7 +45,7 @@ margin-right: 60px;
 }
 .containerCategoria .categorias{
     width: 100%;
-    background-color: rgb(36, 36, 36);
+    background-color: #242424;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -89,59 +87,3 @@ margin-right: 60px;
 }
   
 
-.containericons{
-    width: 100%;
-    height: 140px;
-    background-color: transparent;
-    display: flex;
-    gap: 20px;
-    padding-left: 70px;
-    margin-bottom: 60px;
-    
-}
-
-.boxicons{
-width: 150px;
-height: 100%;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-gap: 10px;
-
-}
-
-.boxicons img{
-  width: 100%;
-  height: 100%;
- 
-}
-
-#imgpo{
-width: 95%;
-height: 95%;
-margin-bottom: -47%;
-
-}
-
-.boxicons p{
-  width: 100px;
-  color: #fddb0c;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
-
-}
-
-#ntxleft{
-    margin-right: 60%;
-}
-#saida{
- width: 90%;
- height: 90%;
- margin-bottom: -47%;
- display: flex;
- flex-wrap: nowrap;
- justify-content: center;
-}

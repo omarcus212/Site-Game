@@ -1,0 +1,235 @@
+*{
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+body{
+  background-color: #150f35;
+}
+
+header{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 400px;
+  margin-bottom: 7rem;
+}
+
+nav{
+  display: flex;
+  width: auto;
+  height: auto;
+  background-image: url(../icons/placeimg.png);
+ 
+}
+
+span{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-style: italic;
+  margin-right: 5px;
+  font-size: 1rem;
+  flex-wrap: wrap;
+  
+}
+
+.hellouname{
+  display: flex;
+  width: auto;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  padding: 50px;
+  flex-wrap: nowrap;
+  flex-grow: inherit;
+  color: #ffffff;
+}
+
+.cmsinto{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: auto;
+  color: #ffffff;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 10px;
+  gap: 10px;
+}
+
+.cmsinto h1,h3,p{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-bottom: -10px;
+}
+
+.containericons{
+  display: flex;
+  width: auto;
+  height: 50%;
+  background-color: #303030;
+  gap: 15px;
+  padding: 20px;
+  gap: 30px;
+}
+
+.containericons .boxicons{
+  width: 9rem;
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  border-radius: 0.5em;
+  box-shadow: 0 0 20px 2px #000000;
+  gap: 1px;
+  background-color: #fbcd00;
+}
+
+.boxicons{
+  position: relative;
+  width: 8rem;
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+
+}
+
+.boxicons a{
+  text-decoration: none;
+  color: #1a1a1a;
+  
+ 
+}
+
+.boxicons img{
+  margin: auto;
+  width: 85%;
+  height: 70%;
+  
+}
+
+#usericons,#ctticons{
+  width: 100px;
+  height: auto;
+}
+
+
+.boxicons p{
+  display: flex;
+  width: 70%;
+  height: auto;
+  justify-content: center;
+  align-content: center;
+  padding: 5px;
+  margin-top: -5px;
+  font-size: 1rem;
+  margin: auto;
+  color: #000;
+}
+
+.boxicons:nth-child(5){
+  margin-left: 20rem;
+}
+
+
+@media (max-width:980px){
+
+  html{
+      margin: 0;
+      box-sizing: border-box;
+  }
+  
+  header{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 200px;
+      
+      
+  }
+  header span{
+      width: auto;
+      height: auto;
+      display: flex;
+      margin-bottom: 1px;
+
+  }
+  .cmsinto,.hellouname{
+      display: flex;
+      flex-direction: column;
+      width: auto;
+      height: auto;
+      flex-wrap: nowrap;
+      font: 0.8em sans-serif;
+  }
+
+
+  
+  .containericons {
+         width: auto;
+         height: auto;
+         color: #fff;
+  }
+
+  .boxicons{
+      display: flex;
+      flex-direction: column;
+      font-size: 1rem;
+      width: 30px;
+      height: 30px;
+  }
+
+  .boxicons a{
+      width: auto;
+      text-decoration: none;
+      color: #000;
+        
+  }
+
+  .boxicons:nth-child(5){
+      margin-left: 0rem;
+  }
+  
+
+}
+
+
+@media (max-width:600px){
+
+
+  header{
+      width: auto;
+      height: 100px;
+  }
+
+  nav{
+      width: auto;
+      height: 100%;
+  }
+
+  .containericons{
+      width: auto;
+      height: 60px;
+  }
+
+ .containericons .boxicons{
+     display: flex;
+      width: auto;
+      height: auto;
+      border-radius: 0;
+      padding: 0;
+      margin: 0;
+      font: 1em sans-serif;
+      background-color: #000000;
+      gap: 0;
+  }
+
+  .boxicons img{
+      display: none;
+      overflow: hidden;
+  }
+}
