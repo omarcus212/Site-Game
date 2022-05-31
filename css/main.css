@@ -145,8 +145,6 @@ margin-top: 50px;
 
 
 
-
-
 /*section promocao adiante*/
 #promocao{
     margin-top: 90px;
@@ -184,7 +182,6 @@ transform: scaleX(60deg);
     margin-bottom: -112px ;
     
 }
-
 
 #cardpromocao #container-preco{
     display: flex;
@@ -376,7 +373,6 @@ background-color: #FDDB00;
    
 }
 
-
 #cardproduto #detalhes{
     display: flex;
     align-items: center;
@@ -412,7 +408,6 @@ background-color: #FDDB00;
     text-decoration: line-through #C70C0C 2px;
 
 }
-
 
 #preco:hover,
 #detalhes:hover{
@@ -460,7 +455,6 @@ background-color: #FDDB00;
 }
 
 
-
 #title-sobre,
 #title-destaques p{
     color: #000;
@@ -470,7 +464,6 @@ background-color: #FDDB00;
     
 }
 
-
 #destaques{
     min-height: 55rem;
     height: auto;
@@ -479,7 +472,6 @@ background-color: #FDDB00;
    
 }
  
-
 #div-destaques {
     min-height: 100%;
     width: 100%;
@@ -495,8 +487,6 @@ background-color: #FDDB00;
 
 }
 
-
-
 #carddestaque img{
     width: 100%;
     height: 325px; 
@@ -511,9 +501,6 @@ background-color: #FDDB00;
    
 }
 
-
-
-
 #carddestaque #preco{
     display: flex;
     align-items: center;
@@ -526,6 +513,7 @@ background-color: #FDDB00;
     border-radius: 10px;
     box-shadow: #3d8a02 0px 0px 5px 2px;
 }
+
 #carddestaque #container-preco{
     position: absolute;
     display: flex;
@@ -536,6 +524,7 @@ background-color: #FDDB00;
     padding-bottom: 10px;
 
 }
+
 #carddestaque #detalhes{
     display: flex;
     align-items: center;
@@ -547,7 +536,6 @@ background-color: #FDDB00;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     border-radius: 5px;
 }
-
 
 #carddestaque h3{
     width: 100%;
@@ -637,18 +625,15 @@ font-family: 'Roboto', sans-serif;
 
 
 #sobre{
-    position: relative;
     width: 100%;
     height: 50rem;
-    margin-bottom: 0px;
+    background-image: url(../imgs/god\ of\ war.png);
+    background-position: center;
+    border-radius: 3rem;
+ 
+   
 }
 
-#sobre img{
-    width: 100%;
-    height: 90%;
-    opacity: 60%;
-    
-}
 
 
 #texto-quemsomo{
@@ -671,8 +656,8 @@ color: #fff;
 
 #texto-quemsomo .quem-somos{
 margin-bottom: 60px;
-width: 100%;
-height: 60px;
+width: 90%;
+height: 50px;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -682,6 +667,16 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 }
 
+#texto-quemsomo p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 50%;
+    font-size: 1.5rem;
+    text-align: center;
+}
 
 
 
@@ -695,11 +690,50 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         margin: 20px 0 0 0;
         width:100%;
         box-shadow: none;
+       /* width: clamp(350px, 100%, 500px); */
     }
 
     #texto-quemsomo{
         font-size: 20px;
     }
+
+    #texto-quemsomo p{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        text-align: center;
+        width: auto;
+        height: auto;
+        font-size: 0.9rem;
+    }
+
+    #title-promocao,
+    #title-produto,
+    #title-destaques,
+    p{
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        text-align: center;
+        font-size: 1.5rem;
+     
+
+    }
+    
+    #title-sobre {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        text-align: center;
+        
+        
+        
+    }
+    
 }
 
 

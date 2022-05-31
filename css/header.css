@@ -224,13 +224,51 @@ display: flex;
 
 
 @media (max-width:1000px) {
+  
+    body{
+        background-color: #171717;
+    }
 
     header{
-        
-        width:100%;
+        position: relative;
+        width:auto;
     }
+
     #nome-site{
         display: none;
         transition: 0.40s;
     }
+
+    #drop-menu{
+        display: none;
+    }
+
+    #drop-todomenu{
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        width: 100%; 
+        height: auto; 
+    
+    }
+
+    #img-pesquisa{
+        margin-left: 2px;
+    }
+ 
+     #menu-burgue{
+         margin: auto;
+         
+     }
+
+     .meu-slide-manual{
+         position: absolute;
+         display: flex;
+         top: 90%;
+         left: 30%;
+         justify-content: center;
+         align-items: flex-end;
+         width: 50%;
+     }
+ 
 }
