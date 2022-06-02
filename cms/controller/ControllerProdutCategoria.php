@@ -1,28 +1,28 @@
 <?php
 
-require_once('model/bd/produtocategoria.php');
+require_once('model/bd/Produtocategoria.php');
 require_once('./modulo/config.php');
 
 
 
-function inserirCategoria($dados)
+function inserirProdutoCategoria($dados)
 {
 
     if (!empty($dados)){
 
     
-
-        if (!empty($dados['txtCategoria'])) {
+        if (!empty($dados['categoriaProdut']) && !empty($dados['cateProduto'])) {
 
             $arreydads = array(
 
-                "Categoria" => $dados['txtCategoria']
+                "Categoria" => $dados['categoriaProdut'],
+                "Produto"   =>  $dados['cateProduto']  
 
             );
 
 
 
-            if (insertCategorias($arreydads)) {
+            if (inserirProdutoCategorias($arreydads)) {
 
                 return true;
             } else {
@@ -37,13 +37,13 @@ function inserirCategoria($dados)
 }
 
 
-function listarCategoria()
+function listarProdutoCategoria()
 {
 
 
     require_once('./model/bd/produtocategoria.php');
 
-    $dados = selectAllCategorias();
+    $dados = selectAllProdutoCategoria();
 
     if (!empty($dados))
 

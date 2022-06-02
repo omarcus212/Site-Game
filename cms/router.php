@@ -290,6 +290,101 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET')
 
         break;
 
+        case 'PRODUTOCATEGORIA';
+        require_once('./controller/ControllerProdutCategoria.php');
+              if($action == 'INSERIR'){
+                 
+
+             
+             
+                   $respostaprodutoCategoria = inserirProdutoCategoria($_POST);
+             
+                 
+                         
+               if (is_bool($respostaprodutoCategoria)) {
+
+                   echo ("<script>
+                   alert('REGISTRO INSIRIDO COM SUCESSO');
+                   window.location.href = 'produtosCategoria.php';
+                   </script>");
+
+               } elseif (is_array($respostaprodutoCategoria)) {
+                   
+                   echo ("<script>
+               alert('" . $respostaprodutoCategoria['message'] . "');
+               window.history.back();
+               </script>");
+               
+               }
+
+
+
+           }else if($action == 'BUSCAR'){
+
+               $idproduto = $_GET['id'];
+               $respostaproduto= Buscaridproduto($idproduto);
+
+               session_start();
+               $_SESSION['dadosProduto'] = $respostaproduto;
+               require_once('admprodutos.php');
+
+           }else if($action == 'DELETAR'){
+
+               $idproduto = $_GET['id'];
+               $foto = $_GET['foto'];
+          
+               $arraydados = array(
+                          "id" => $idproduto,
+                          "fotoname" => $foto        
+               );
+
+               $respostaP = excluirProduto($arraydados);
+               
+
+               if (is_bool($respostaP)){
+
+                           echo ("<script>
+                   alert('REGISTRO EXCLUIDO COM SUCESSO');
+                   window.location.href = 'admprodutos.php';
+                   </script>");
+
+                } elseif (is_array($respostaP)) {
+
+                           echo ("<script>
+                        alert('" . $respostaP['message'] . "');
+                        window.history.back();
+                         </script>");
+                }
+
+           }else if($action == 'EDITAR'){
+
+               $id = $_GET['id'];
+               $foto = $_GET['foto'];
+          
+               $arraydados = array(
+                          "id" => $id,
+                          "fotoname" => $foto ,
+                          "file" => $_FILES       
+               );
+                      
+               $respostaproduto = editarProduto($_POST,$arraydados);
+               
+               if (is_bool($respostaproduto)) {
+                            
+                   echo ("<script>
+               alert('REGISTRO ATUALIZADO COM SUCESSO');
+               window.location.href = 'admprodutos.php';
+               </script>");
+               }elseif (is_array($respostaproduto)) {
+                   
+                   echo ("<script>
+                 alert('" . $respostaproduto['message'] . "');
+                window.history.back();
+                 </script>");
+               }
+           }
+
+
     }
 }
 

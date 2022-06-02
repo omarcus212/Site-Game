@@ -74,33 +74,15 @@
             <span class="ttlite">
                 <p>Categoria/produtos</p>
             </span>
-
-            <?php
-                    // conexão com o arq controllerContatos
-                    require_once('controller/ControllerCategorias.php');
-                    require_once('controller/ControllerProduto.php');
-                    
-                    
-                    //chamando a fun listarcontatos
-                   $listcategoria = listarCategoria(); 
-                   $listprodutos = listarprodutos();                        
-                        
-                        //estrutura de repetição para retornar os dados do array printar na tela
-                          foreach ($listcategoria as $item) { //for para exibir listas na tela
-                            foreach ($listprodutos as $itemp) {
-                          
-                ?>
+               
             
-            <form action="inserir" method="post">
-                <select name="categoriaProdut" id="categoriaProdut"><option value="<?=$item['Categoria']?'selectd':null?>"><?=$item['Categoria']?></option></select>
-                <select name="categoriaPr" id="cateProduto"><option value="<?=$item['Nome']?'selectd':null?>"><?=$itemp['Nome']?></option></select>
+            <form action="router.php?componente=PRODUTOCATEGORIA&action=inserir" method="post">
+                <select name="categoriaProdut" id="categoriaProdut"><option value="tiroteste"></option></select>
+                <select name="cateProduto" id="cateProduto"><option value="xoodic"></option></select>
                 <input type="submit" id="ctpd" value="salvar">
             </form>
         </div>
-         <?php
-                            }
-          }
-         ?>
+    
         <div id="consultaDeDados">
             <table id="tblConsulta">
                 <tr>

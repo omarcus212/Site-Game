@@ -4,7 +4,7 @@ require_once('conexaoMysql.php');
 
 
 
-function insertCategorias($dados)
+function inserirProdutoCategorias($dados)
 {
 
     $resposta = (bool)false;
@@ -13,12 +13,13 @@ function insertCategorias($dados)
 
     $sql = "insert into tblproduto_categoria
 
- (idproduto,idcategoria)
+  (idproduto,idcategoria)
 
- value
+  value
 
- ('" . $dados[''] . "');";
+  ('" . $dados['Categoria'] . "','" . $dados['Produto'] . "');";
 
+           
 
     if (mysqli_query($conexaosql, $sql)) {
 
@@ -32,7 +33,7 @@ function insertCategorias($dados)
 }
 
 
-function selectAllCategorias()
+function selectAllProdutoCategoria()
 {
 
     $conexao = abrirConexaoMyslq();
