@@ -1,33 +1,28 @@
 <?php
 
-/*******
- * objetivo : arquivo responsavel pela manipulacao de dados de Categorias 
- * 
- * autor : Marcus
- * 
- * Data : 14/04/22
- * 
- * versao : 1.0
- */
-require_once('./model/bd/Categorias.php');
+require_once('model/bd/produtocategoria.php');
 require_once('./modulo/config.php');
 
-function inserirCategoria($categoria)
+
+
+function inserirCategoria($dados)
 {
 
-    if (!empty($categoria)) {
+    if (!empty($dados)){
 
-        if (!empty($categoria['txtCategoria'])) {
+    
 
-            $arreyCategoria = array(
+        if (!empty($dados['txtCategoria'])) {
 
-                "Categoria" => $categoria['txtCategoria']
+            $arreydads = array(
+
+                "Categoria" => $dados['txtCategoria']
 
             );
 
 
 
-            if (insertCategorias($arreyCategoria)) {
+            if (insertCategorias($arreydads)) {
 
                 return true;
             } else {
@@ -46,13 +41,12 @@ function listarCategoria()
 {
 
 
-    require_once('./model/bd/Categorias.php');
+    require_once('./model/bd/produtocategoria.php');
 
     $dados = selectAllCategorias();
 
     if (!empty($dados))
-     
-    
+
         return $dados;
 
     else
@@ -61,7 +55,7 @@ function listarCategoria()
 }
 
 
-function excluirCategorias($id)
+function excluirprodutocategoria($id)
 {
 
     if ($id != 0 && !empty($id) && is_numeric($id)) {
@@ -77,12 +71,12 @@ function excluirCategorias($id)
     }
 }
 
-function buscarCategorias($id)
+function buscarprodutocategoria($id)
 {
 
     if ($id != 0 && !empty($id) && is_numeric($id)) {
 
-        require_once('model/bd/Categorias.php');
+        require_once('model/bd/produtocategoria.php');
 
         $dadosCategoria = selectbyIdCategorias($id);
         if (!empty($dadosCategoria)) {
@@ -99,7 +93,7 @@ function buscarCategorias($id)
 
 
 
-function atualizarContatos($dadosCte, $id)
+function atualizarprodutocategoria($dadosCte, $id)
 {
  if(!empty($dadosCte)){
     
@@ -144,3 +138,8 @@ function atualizarContatos($dadosCte, $id)
 
 
 }
+
+
+
+
+?>

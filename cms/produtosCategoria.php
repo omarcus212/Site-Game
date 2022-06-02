@@ -74,13 +74,33 @@
             <span class="ttlite">
                 <p>Categoria/produtos</p>
             </span>
+
+            <?php
+                    // conexão com o arq controllerContatos
+                    require_once('controller/ControllerCategorias.php');
+                    require_once('controller/ControllerProduto.php');
+                    
+                    
+                    //chamando a fun listarcontatos
+                   $listcategoria = listarCategoria(); 
+                   $listprodutos = listarprodutos();                        
+                        
+                        //estrutura de repetição para retornar os dados do array printar na tela
+                          foreach ($listcategoria as $item) { //for para exibir listas na tela
+                            foreach ($listprodutos as $itemp) {
+                          
+                ?>
+            
             <form action="inserir" method="post">
-                <select name="categoriaProdut" id="categoriaProdut"></select>
-                <select name="categoriaPr" id="cateProduto"></select>
+                <select name="categoriaProdut" id="categoriaProdut"><option value="<?=$item['Categoria']?'selectd':null?>"><?=$item['Categoria']?></option></select>
+                <select name="categoriaPr" id="cateProduto"><option value="<?=$item['Nome']?'selectd':null?>"><?=$itemp['Nome']?></option></select>
                 <input type="submit" id="ctpd" value="salvar">
             </form>
         </div>
-
+         <?php
+                            }
+          }
+         ?>
         <div id="consultaDeDados">
             <table id="tblConsulta">
                 <tr>
@@ -89,9 +109,8 @@
                     </td>
                 </tr>
                 <tr id="tblLinhas">
-                    <td class="tblColunas destaque" id="caixanome"> Nome </td>
-                    <td class="tblColunas destaque" id="caixaemail"> Email </td>
-                    <td class="tblColunas destaque" id="caixaobs"> obeservação </td>
+                    <td class="tblColunas destaque" id="caixanome"> produto</td>
+                    <td class="tblColunas destaque" id="caixaemail"> Categoria </td>
                     <td class="tblColunas destaque" id="caixanada"> </td>
 
 
@@ -101,7 +120,7 @@
                 <tr id="tblLinhas">
                     <td class="tblColunas registros"></td>
                     <td class="tblColunas registros"></td>
-                    <td class="tblColunas registros"></td>
+                  
 
 
                     <td class="tblColunas registros">

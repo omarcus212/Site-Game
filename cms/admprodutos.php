@@ -118,11 +118,13 @@ if (session_status()) {
                         <label>Preço:</label>
                         <input type="text" name="txtpreco" value="<?= isset($preco) ? $preco : null ?>">
                     </div>
-                    <div>
-                        <label>Destaque:</label>
-                        <span>Sim</span>
-                        <input type="checkbox" name="checkprodutos" value="1">
+                    <div class="destcbox">
 
+                        <label>Destaque:</label>
+                        <span>Sim</span> <input  type="checkbox" name="checkprodutos" value="1" checked >
+                        
+                      
+                        
 
                     </div>
                     <div>
