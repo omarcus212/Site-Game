@@ -4,8 +4,9 @@ require_once('conexaoMysql.php');
 
 
 
-function inserirProdutoCategorias($dados)
+function inseritProdutoCategorias($dados)
 {
+
 
     $resposta = (bool)false;
 
@@ -13,22 +14,23 @@ function inserirProdutoCategorias($dados)
 
     $sql = "insert into tblproduto_categoria
 
-  (idproduto,idcategoria)
+  (idCategoria,idprodutos)
 
   value
 
   ('" . $dados['Categoria'] . "','" . $dados['Produto'] . "');";
 
-           
-
+ 
     if (mysqli_query($conexaosql, $sql)) {
-
+    
         if (mysqli_affected_rows($conexaosql)) {
             $resposta = true;
         }
 
+           
         fecharConexaoMyslq($conexaosql);
         return $resposta;
+        
     }
 }
 
@@ -38,7 +40,7 @@ function selectAllProdutoCategoria()
 
     $conexao = abrirConexaoMyslq();
 
-    $sql = "select * from tblcategorias order by idcategorias desc";
+    $sql = "select * from tblproduto_categoria order by id desc";
 
     $resultbanco = mysqli_query($conexao, $sql);
 
@@ -47,8 +49,9 @@ function selectAllProdutoCategoria()
         while ($rsdados = mysqli_fetch_assoc($resultbanco)) {
 
             $arreydados[$cont] = array(
-                "id"   => $rsdados['idcategorias'],
-                "Categoria"  => $rsdados['categoria']
+                "id"   => $rsdados['id'],
+                "Categoria"  => $rsdados['idCategoria'],
+                "produto" => $rsdados['idprodutos']
             );
             $cont++;
         }

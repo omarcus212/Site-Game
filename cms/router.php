@@ -299,7 +299,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET')
              
                    $respostaprodutoCategoria = inserirProdutoCategoria($_POST);
              
-                 
+                   
                          
                if (is_bool($respostaprodutoCategoria)) {
 
@@ -309,7 +309,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET')
                    </script>");
 
                } elseif (is_array($respostaprodutoCategoria)) {
-                   
+                   var_dump($respostaprodutoCategoria);
+                   die;
                    echo ("<script>
                alert('" . $respostaprodutoCategoria['message'] . "');
                window.history.back();

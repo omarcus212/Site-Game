@@ -1,5 +1,4 @@
 <?php
-
 require_once('model/bd/Produtocategoria.php');
 require_once('./modulo/config.php');
 
@@ -21,12 +20,12 @@ function inserirProdutoCategoria($dados)
             );
 
 
-
-            if (inserirProdutoCategorias($arreydads)) {
-
+            if ($NDAD=inseritProdutoCategorias($arreydads)) {
                 return true;
-            } else {
 
+            } else {
+                    var_dump($NDAD);
+                    die;
                 return array(ERRO_INSERIR_DADOS);
             }
         } else {

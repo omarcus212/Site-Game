@@ -77,8 +77,8 @@
                
             
             <form action="router.php?componente=PRODUTOCATEGORIA&action=inserir" method="post">
-                <select name="categoriaProdut" id="categoriaProdut"><option value="tiroteste"></option></select>
-                <select name="cateProduto" id="cateProduto"><option value="xoodic"></option></select>
+                <select name="categoriaProdut" id="categoriaProdut"><option value="2"></option></select>
+                <select name="cateProduto" id="cateProduto"><option value="13"></option></select>
                 <input type="submit" id="ctpd" value="salvar">
             </form>
         </div>
@@ -98,10 +98,18 @@
 
                 </tr>
 
+                <?php
+                require_once('controller/ControllerProdutCategoria.php');
+                $listprodutocate = listarProdutoCategoria();
 
+                foreach ($listprodutocate as $item) {
+
+
+                ?>
+                
                 <tr id="tblLinhas">
-                    <td class="tblColunas registros"></td>
-                    <td class="tblColunas registros"></td>
+                    <td class="tblColunas registros"><?=$item['produto']?> </td>
+                    <td class="tblColunas registros"><?=$item['Categoria']?> </td>
                   
 
 
@@ -120,7 +128,9 @@
                 </tr>
 
 
-
+                <?php
+                }
+                ?>
 
 
 
