@@ -291,8 +291,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET')
         break;
 
         case 'PRODUTOCATEGORIA';
-        require_once('./controller/ControllerProdutCategoria.php');
-              if($action == 'INSERIR'){
+                require_once('./controller/ControllerProdutCategoria.php');
+            if($action == 'INSERIR'){
                  
 
                    $respostaprodutoCategoria = inserirProdutoCategoria($_POST);
@@ -353,6 +353,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET')
               
                         
                $respostaproduto = atualizarprodutocategoria($_POST,$id);
+
                
                if (is_bool($respostaproduto)) {
                             
@@ -362,7 +363,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET')
                </script>");
 
                }elseif (is_array($respostaproduto)) {
-                   
+                             
                    echo ("<script>
                  alert('".$respostaproduto['message'] . "');
                 window.history.back();

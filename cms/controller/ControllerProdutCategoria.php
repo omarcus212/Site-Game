@@ -95,6 +95,8 @@ function buscarprodutocategoria($id)
 
 function atualizarprodutocategoria($dados, $id)
 {
+
+
  if(!empty($dados)){
     
     if(!empty($dados['cateProduto']) && !empty($dados['categoriaProdut'])){
@@ -104,12 +106,10 @@ function atualizarprodutocategoria($dados, $id)
             $arreydads = array(
              
                 "id" => $id,
-                "Categorianome" => $dados['cateProduto'],
-                "Produtonome" => $dados['categoriaProdut']
+                "idCategoria" => $dados['cateProduto'],
+                "idProduto" => $dados['categoriaProdut']
               
-            );
-
-         
+            );        
 
               if(uptadeProdutoCategorias($arreydads)){
                
@@ -127,7 +127,7 @@ function atualizarprodutocategoria($dados, $id)
 
         }else{                 // else de fechamento do estrura de deciçao do $id;
             return array('idErro ' => 4, 
-            'message' => 'nao foi possivel atualizar os dados' );     
+            'message' => 'nao foi possivel atualizar os dados id invalido' );     
         }
 
     }else {

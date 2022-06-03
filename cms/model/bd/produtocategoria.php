@@ -56,8 +56,14 @@ function selectAllProdutoCategoria()
             $cont++;
         }
     }
-    return $arreydados;
-    fecharConexaoMyslq($conexao);
+
+    if(!empty($arreydados)){
+        return $arreydados;
+        fecharConexaoMyslq($conexao);
+    }else{
+        return null;
+    }
+   
 }
 /*feito*/
 
@@ -101,9 +107,12 @@ function selectbyIdProdutoCategorias($id)
            
         } 
        
-        
-        fecharConexaoMyslq($conexao);
-        return $arreydados;
+        if(!empty($arreydados)){
+            return $arreydados;
+            fecharConexaoMyslq($conexao);
+        }else{
+            return null;
+        }
         
     } 
 }
@@ -118,11 +127,10 @@ function uptadeProdutoCategorias($dados)
     $conexaosql = abrirConexaoMyslq();
 
     $sql = "update tblproduto_categoria set 
-            idCategoria =  '".$dados{'Categorianome'}."',
-            idprodutos =  '".$dados{'Produtonome'}."'
+            idCategoria =  '".$dados{'idCategoria'}."',
+            idprodutos =  '".$dados{'idProduto'}."'
             where id=".$dados['id'];
-
-          
+        
 
     if (mysqli_query($conexaosql, $sql)) {
 

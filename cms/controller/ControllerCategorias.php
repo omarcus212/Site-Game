@@ -96,9 +96,6 @@ function buscarCategorias($id)
     }
 }
 
-
-
-
 function atualizarContatos($dadosCte, $id)
 {
  if(!empty($dadosCte)){

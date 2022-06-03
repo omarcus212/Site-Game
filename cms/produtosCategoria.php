@@ -101,28 +101,29 @@ if (session_status()) {
             
             <form action="<?=$form?>" method="post">
 
-          
-         
-                <select name="cateProduto" id="cateProduto"><!-- Produto -->
+              
+           <span>Produto</span>   <select name="categoriaProdut" id="categoriaProdut"> <!-- Produto -->
 
-                                <option value="">Selecione um item</option>
-                                
-                                <?php
-                                require_once('controller/ControllerProduto.php');
-                                $listproduto = listarprodutos();
+                            <option value="">Selecione um item</option>
 
-                                foreach ($listproduto as $itemproduto) {
+                            <?php
+                              require_once('controller/ControllerProduto.php');
+                              $listproduto = listarprodutos();
+                            foreach ($listproduto as $itemproduto) {
 
-                                ?>
-                            
-                                <option <?=$idproduto==$itemproduto['id']?'selected':null?> value="<?=$itemproduto['id']?>"><?=$itemproduto['Nome']?></option>
-                                
-                               <?php
-                                }
-                                ?>
+
+                            ?>
+                            <option <?=$idproduto==$itemproduto['id']?'selected':null?>  value="<?=$itemproduto['id']?>"><?=$itemproduto['Nome']?></option>
+                            <?php
+                            }
+                            ?>
+
+
                 </select>
 
-                <select name="categoriaProdut" id="categoriaProdut">  <!-- Categoria -->
+
+                  
+                                    <span>Categoria</span>  <select name="cateProduto" id="cateProduto"><!-- Categoria -->
 
                             <option value="">Selecione um item</option>
 
@@ -130,17 +131,18 @@ if (session_status()) {
                             require_once('controller/ControllerCategorias.php');
                             $listcategorias = listarCategoria();
 
+
                             foreach ($listcategorias as $item) {
-
-
+                                        
+                            
                             ?>
-                            <option <?=$idcategoria==$item['id']?'selected':null?> value="<?=$item['id']?>"><?=$item['Categoria']?></option>
+
+                            <option <?=$idcategoria==$item['id']?'selected':null?>  value="<?=$item['id']?>"><?=$item['Categoria']?></option>
+
                             <?php
                             }
                             ?>
-
-
-                </select>
+                 </select>
 
                 <input type="submit" id="ctpd" value="salvar">
             
@@ -156,9 +158,9 @@ if (session_status()) {
                         <h1> Consulta de Dados</h1>
                     </td>
                 </tr>
-                <tr id="tblLinhas">
-                    <td class="tblColunas destaque" id="caixanome"> produtos</td>
+                <tr id="tblLinhas">            
                     <td class="tblColunas destaque" id="caixaemail"> Categorias</td>
+                    <td class="tblColunas destaque" id="caixanome"> produtos</td>
                     <td class="tblColunas destaque" id="caixanada"> </td>
 
 

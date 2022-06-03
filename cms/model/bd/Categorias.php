@@ -13,11 +13,11 @@ function insertCategorias($categorias)
 
     $sql = "insert into tblCategorias
 
-(categoria)
+ (categoria)
 
-value
+ value
 
-('" . $categorias['Categoria'] . "');";
+ ('" . $categorias['Categoria'] . "');";
 
 
     if (mysqli_query($conexaosql, $sql)) {
@@ -113,7 +113,7 @@ function uptadecategoria($dadoCategoria)
 
     $sql = "update tblcategorias set 
 
-categoria =  '" . $dadoCategoria{'Categorianome'} . "'
+ categoria =  '" . $dadoCategoria{'Categorianome'} . "'
 
         where idcategorias =" . $dadoCategoria['id'];
 
