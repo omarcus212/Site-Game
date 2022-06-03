@@ -60,7 +60,7 @@ function excluirprodutocategoria($id)
     if ($id != 0 && !empty($id) && is_numeric($id)) {
 
 
-        if (deletarCategorias($id)) {
+        if (deletarProdutoCategorias($id)) {
             return true;
         } else {
             return array(ERRO_AO_EXCLUIR);
@@ -77,8 +77,10 @@ function buscarprodutocategoria($id)
 
         require_once('model/bd/produtocategoria.php');
 
-        $dadosCategoria = selectbyIdCategorias($id);
+        $dadosCategoria = selectbyIdProdutoCategorias($id);
+
         if (!empty($dadosCategoria)) {
+
             return $dadosCategoria;
 
         } else {
@@ -91,29 +93,31 @@ function buscarprodutocategoria($id)
 
 
 
-
-function atualizarprodutocategoria($dadosCte, $id)
+function atualizarprodutocategoria($dados, $id)
 {
- if(!empty($dadosCte)){
+ if(!empty($dados)){
     
-    if(!empty($dadosCte['txtCategoria'])){
+    if(!empty($dados['cateProduto']) && !empty($dados['categoriaProdut'])){
 
         if(!empty($id) && $id != 0 && is_numeric($id)){
               
             $arreydads = array(
              
                 "id" => $id,
-                "Categorianome" => $dadosCte['txtCategoria']
+                "Categorianome" => $dados['cateProduto'],
+                "Produtonome" => $dados['categoriaProdut']
               
             );
 
          
 
-
-              if(uptadecategoria($arreydads)){
+              if(uptadeProdutoCategorias($arreydads)){
+               
                   return true;
+
               }else{
-           
+
+         
                 return array('idErro ' => 1, 
                 'message' => 'nao foi possivel atualizar os dados' );
                

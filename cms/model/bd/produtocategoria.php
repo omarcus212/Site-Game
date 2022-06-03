@@ -33,7 +33,7 @@ function inseritProdutoCategorias($dados)
         
     }
 }
-
+/*feito*/
 
 function selectAllProdutoCategoria()
 {
@@ -50,8 +50,8 @@ function selectAllProdutoCategoria()
 
             $arreydados[$cont] = array(
                 "id"   => $rsdados['id'],
-                "Categoria"  => $rsdados['idCategoria'],
-                "produto" => $rsdados['idprodutos']
+                "CategoriaC"  => $rsdados['idCategoria'],
+                "produtoC" => $rsdados['idprodutos']
             );
             $cont++;
         }
@@ -59,16 +59,16 @@ function selectAllProdutoCategoria()
     return $arreydados;
     fecharConexaoMyslq($conexao);
 }
+/*feito*/
 
-
-function deletarCategorias($id)
+function deletarProdutoCategorias($id)
 {
 
     $status = (bool)false;
 
     $conexao = abrirConexaoMyslq();
 
-    $sql = " delete from tblcategorias where idcategorias = " . $id;
+    $sql = " delete from tblproduto_categoria where id = " . $id;
 
     if (mysqli_query($conexao, $sql)) {
         if (mysqli_affected_rows($conexao)) {
@@ -78,13 +78,14 @@ function deletarCategorias($id)
         return $status;
     }
 }
+/*feito*/
 
-function selectbyIdCategorias($id)
+function selectbyIdProdutoCategorias($id)
 {
 
     $conexao = abrirConexaoMyslq();
 
-    $slq = "select * from tblcategorias where idcategorias =".$id ;
+    $slq = "select * from tblproduto_categoria where id=".$id ;
 
     $result = mysqli_query($conexao,$slq);
     if($result){
@@ -92,8 +93,9 @@ function selectbyIdCategorias($id)
           if($rsdados = mysqli_fetch_assoc($result)){
                   
            $arreydados = array(
-              "id"   => $rsdados['idcategorias'],
-              "Nomecategoria"  =>$rsdados['categoria']
+              "id"   => $rsdados['id'],
+              "idcategoria"  =>$rsdados['idCategoria'],
+              "idproduto"  =>$rsdados['idprodutos'],
              
            );
            
@@ -108,28 +110,28 @@ function selectbyIdCategorias($id)
 
 
 
-function uptadecategoria($dadoCategoria)
+function uptadeProdutoCategorias($dados)
 {
     $resposta = (bool)false;
 
 
     $conexaosql = abrirConexaoMyslq();
 
-    $sql = "update tblcategorias set 
+    $sql = "update tblproduto_categoria set 
+            idCategoria =  '".$dados{'Categorianome'}."',
+            idprodutos =  '".$dados{'Produtonome'}."'
+            where id=".$dados['id'];
 
- categoria =  '" . $dadoCategoria{'Categorianome'} . "'
-
-        where idcategorias =" . $dadoCategoria['id'];
-
-         
+          
 
     if (mysqli_query($conexaosql, $sql)) {
 
         if (mysqli_affected_rows($conexaosql)) {
             $resposta = true;
         }
-
+        
         fecharConexaoMyslq($conexaosql);
         return $resposta;
+        
     }
 }

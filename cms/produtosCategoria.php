@@ -1,3 +1,24 @@
+<?php
+
+
+$form = (string)"router.php?componente=PRODUTOCATEGORIA&action=inserir";
+
+if (session_status()) {
+    if (!empty($_SESSION['dadosProdutoCategoria'])) {
+        $id = $_SESSION['dadosProdutoCategoria']['id'];
+        $idcategoria = $_SESSION['dadosProdutoCategoria']['idcategoria'];
+        $idproduto= $_SESSION['dadosProdutoCategoria']['idproduto'];
+       
+       
+
+        $form = "router.php?componente=PRODUTOCATEGORIA&action=editar&id=".$id;
+        unset($_SESSION['dadosProdutoCategoria']);
+    }
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -74,15 +95,60 @@
             <span class="ttlite">
                 <p>Categoria/produtos</p>
             </span>
-               
+
             
-            <form action="router.php?componente=PRODUTOCATEGORIA&action=inserir" method="post">
-                <select name="categoriaProdut" id="categoriaProdut"><option value="2"></option></select>
-                <select name="cateProduto" id="cateProduto"><option value="13"></option></select>
+            
+            
+            <form action="<?=$form?>" method="post">
+
+          
+         
+                <select name="cateProduto" id="cateProduto"><!-- Produto -->
+
+                                <option value="">Selecione um item</option>
+                                
+                                <?php
+                                require_once('controller/ControllerProduto.php');
+                                $listproduto = listarprodutos();
+
+                                foreach ($listproduto as $itemproduto) {
+
+                                ?>
+                            
+                                <option <?=$idproduto==$itemproduto['id']?'selected':null?> value="<?=$itemproduto['id']?>"><?=$itemproduto['Nome']?></option>
+                                
+                               <?php
+                                }
+                                ?>
+                </select>
+
+                <select name="categoriaProdut" id="categoriaProdut">  <!-- Categoria -->
+
+                            <option value="">Selecione um item</option>
+
+                            <?php
+                            require_once('controller/ControllerCategorias.php');
+                            $listcategorias = listarCategoria();
+
+                            foreach ($listcategorias as $item) {
+
+
+                            ?>
+                            <option <?=$idcategoria==$item['id']?'selected':null?> value="<?=$item['id']?>"><?=$item['Categoria']?></option>
+                            <?php
+                            }
+                            ?>
+
+
+                </select>
+
                 <input type="submit" id="ctpd" value="salvar">
+            
+            
             </form>
         </div>
     
+     
         <div id="consultaDeDados">
             <table id="tblConsulta">
                 <tr>
@@ -91,8 +157,8 @@
                     </td>
                 </tr>
                 <tr id="tblLinhas">
-                    <td class="tblColunas destaque" id="caixanome"> produto</td>
-                    <td class="tblColunas destaque" id="caixaemail"> Categoria </td>
+                    <td class="tblColunas destaque" id="caixanome"> produtos</td>
+                    <td class="tblColunas destaque" id="caixaemail"> Categorias</td>
                     <td class="tblColunas destaque" id="caixanada"> </td>
 
 
@@ -108,18 +174,19 @@
                 ?>
                 
                 <tr id="tblLinhas">
-                    <td class="tblColunas registros"><?=$item['produto']?> </td>
-                    <td class="tblColunas registros"><?=$item['Categoria']?> </td>
+    
+                    <td class="tblColunas registros"><?=$item['CategoriaC']?> </td>
+                    <td class="tblColunas registros"><?=$item['produtoC']?> </td>
                   
 
 
                     <td class="tblColunas registros">
-                        <a href="router.php?componente=contatos&action=buscar&id=<?= $item['id'] ?>">
+                        <a href="router.php?componente=PRODUTOCATEGORIA&action=buscar&id=<?=$item['id'] ?>">
                             <img src="img/edit.png" alt="Editar" title="Editar" class="editar">
                         </a>
 
 
-                        <a onclick="return confirm('Tem certeza que deseja excluir?')" href="router.php?componente=contatos&action=deletar&id=<?= $item['id'] ?>">
+                        <a onclick="return confirm('Tem certeza que deseja excluir?')" href="router.php?componente=PRODUTOCATEGORIA&action=deletar&id=<?=$item['id']?>">
                             <img src="img/trash.png" alt="Excluir" title="Excluir" class="excluir">
                         </a>
 

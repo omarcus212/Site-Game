@@ -194,7 +194,7 @@ if (session_status()) {
 
 
                         <td class="tblColunas registros">
-                            <a href="router.php?componente=produto&action=buscar&id=<?= $item['id'] ?>">
+                            <a href="router.php?componente=produto&action=buscar&id=<?=$item['id']?>">
                                 <img src="img/edit.png" alt="Editar" title="Editar" class="editar">
                             </a>
 

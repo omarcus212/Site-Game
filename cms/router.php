@@ -295,11 +295,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET')
               if($action == 'INSERIR'){
                  
 
-             
-             
                    $respostaprodutoCategoria = inserirProdutoCategoria($_POST);
              
-                   
+                 
                          
                if (is_bool($respostaprodutoCategoria)) {
 
@@ -309,8 +307,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET')
                    </script>");
 
                } elseif (is_array($respostaprodutoCategoria)) {
-                   var_dump($respostaprodutoCategoria);
-                   die;
+                   
                    echo ("<script>
                alert('" . $respostaprodutoCategoria['message'] . "');
                window.history.back();
@@ -323,63 +320,51 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET')
            }else if($action == 'BUSCAR'){
 
                $idproduto = $_GET['id'];
-               $respostaproduto= Buscaridproduto($idproduto);
+               $respostaproduto= buscarprodutocategoria($idproduto);
 
                session_start();
-               $_SESSION['dadosProduto'] = $respostaproduto;
-               require_once('admprodutos.php');
+               $_SESSION['dadosProdutoCategoria'] = $respostaproduto;
+               require_once('produtosCategoria.php');
 
            }else if($action == 'DELETAR'){
 
-               $idproduto = $_GET['id'];
-               $foto = $_GET['foto'];
-          
-               $arraydados = array(
-                          "id" => $idproduto,
-                          "fotoname" => $foto        
-               );
-
-               $respostaP = excluirProduto($arraydados);
+               $idprodutoC = $_GET['id'];
+            
+               $respostaproduto = excluirprodutocategoria($idprodutoC);
                
-
-               if (is_bool($respostaP)){
+               if (is_bool($respostaproduto)){
 
                            echo ("<script>
                    alert('REGISTRO EXCLUIDO COM SUCESSO');
-                   window.location.href = 'admprodutos.php';
+                   window.location.href = 'produtosCategoria.php';
                    </script>");
 
-                } elseif (is_array($respostaP)) {
+                } elseif (is_array($respostaproduto)) {
 
                            echo ("<script>
-                        alert('" . $respostaP['message'] . "');
+                        alert('" . $respostaproduto['message'] . "');
                         window.history.back();
                          </script>");
                 }
 
            }else if($action == 'EDITAR'){
 
-               $id = $_GET['id'];
-               $foto = $_GET['foto'];
-          
-               $arraydados = array(
-                          "id" => $id,
-                          "fotoname" => $foto ,
-                          "file" => $_FILES       
-               );
-                      
-               $respostaproduto = editarProduto($_POST,$arraydados);
+            $id = $_GET['id'];
+              
+                        
+               $respostaproduto = atualizarprodutocategoria($_POST,$id);
                
                if (is_bool($respostaproduto)) {
                             
                    echo ("<script>
                alert('REGISTRO ATUALIZADO COM SUCESSO');
-               window.location.href = 'admprodutos.php';
+               window.location.href = 'produtosCategoria.php';
                </script>");
+
                }elseif (is_array($respostaproduto)) {
                    
                    echo ("<script>
-                 alert('" . $respostaproduto['message'] . "');
+                 alert('".$respostaproduto['message'] . "');
                 window.history.back();
                  </script>");
                }

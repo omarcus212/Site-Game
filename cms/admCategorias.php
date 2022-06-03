@@ -10,7 +10,7 @@ if (session_status()) {
 
 
         $form = "router.php?componente=categorias&action=editar&id=" . $id;
-        unset($_SESSION['dadosCategotias']);
+        unset($_SESSION['dadosCategorias']);
     }
 }
 
