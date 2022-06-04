@@ -297,7 +297,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET')
 
                    $respostaprodutoCategoria = inserirProdutoCategoria($_POST);
              
-                 
+                
                          
                if (is_bool($respostaprodutoCategoria)) {
 
@@ -319,9 +319,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET')
 
            }else if($action == 'BUSCAR'){
 
-               $idproduto = $_GET['id'];
-               $respostaproduto= buscarprodutocategoria($idproduto);
-
+               $idprodutocateg = $_GET['id'];
+               $respostaproduto= buscarprodutocategoria($idprodutocateg);
+                     
                session_start();
                $_SESSION['dadosProdutoCategoria'] = $respostaproduto;
                require_once('produtosCategoria.php');

@@ -2,14 +2,17 @@
 
 
 $form = (string)"router.php?componente=PRODUTOCATEGORIA&action=inserir";
+$idproduto=(string)null;
+$idcategoria=(string)null;
 
 if (session_status()) {
     if (!empty($_SESSION['dadosProdutoCategoria'])) {
+
+
         $id = $_SESSION['dadosProdutoCategoria']['id'];
         $idcategoria = $_SESSION['dadosProdutoCategoria']['idcategoria'];
         $idproduto= $_SESSION['dadosProdutoCategoria']['idproduto'];
-       
-       
+    
 
         $form = "router.php?componente=PRODUTOCATEGORIA&action=editar&id=".$id;
         unset($_SESSION['dadosProdutoCategoria']);
@@ -113,7 +116,7 @@ if (session_status()) {
 
 
                             ?>
-                            <option <?=$idproduto==$itemproduto['id']?'selected':null?>  value="<?=$itemproduto['id']?>"><?=$itemproduto['Nome']?></option>
+                            <option <?=$idproduto==$itemproduto['id']?'selected':null?> value="<?=$itemproduto['id']?>" ><?=$itemproduto['Nome']?></option>
                             <?php
                             }
                             ?>
@@ -137,7 +140,7 @@ if (session_status()) {
                             
                             ?>
 
-                            <option <?=$idcategoria==$item['id']?'selected':null?>  value="<?=$item['id']?>"><?=$item['Categoria']?></option>
+                            <option  <?=$idcategoria==$item['id']?'selected':null?> value="<?=$item['id']?>"><?=$item['Categoria']?></option>
 
                             <?php
                             }
@@ -167,6 +170,7 @@ if (session_status()) {
                 </tr>
 
                 <?php
+                
                 require_once('controller/ControllerProdutCategoria.php');
                 $listprodutocate = listarProdutoCategoria();
 

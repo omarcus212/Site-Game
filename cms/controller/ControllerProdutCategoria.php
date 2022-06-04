@@ -6,6 +6,7 @@ require_once('./modulo/config.php');
 
 function inserirProdutoCategoria($dados)
 {
+        
 
     if (!empty($dados)){
 
@@ -14,18 +15,17 @@ function inserirProdutoCategoria($dados)
 
             $arreydads = array(
 
-                "Categoria" => $dados['categoriaProdut'],
-                "Produto"   =>  $dados['cateProduto']  
+                "Categoria" => $dados['cateProduto'],
+                "Produto"   =>  $dados['categoriaProdut']  
 
             );
-
-
-            if ($NDAD=inseritProdutoCategorias($arreydads)) {
+            
+          
+            if (inseritProdutoCategorias($arreydads)) {
                 return true;
 
             } else {
-                    var_dump($NDAD);
-                    die;
+                   
                 return array(ERRO_INSERIR_DADOS);
             }
         } else {
@@ -75,8 +75,7 @@ function buscarprodutocategoria($id)
 
     if ($id != 0 && !empty($id) && is_numeric($id)) {
 
-        require_once('model/bd/produtocategoria.php');
-
+        
         $dadosCategoria = selectbyIdProdutoCategorias($id);
 
         if (!empty($dadosCategoria)) {

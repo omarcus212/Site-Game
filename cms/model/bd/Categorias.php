@@ -64,15 +64,23 @@ function deletarCategorias($id)
 
     $conexao = abrirConexaoMyslq();
 
-    $sql = " delete from tblcategorias where idcategorias = " . $id;
-
+    $sql = "delete from tblcategorias where idcategorias = ".$id;
+      
     if (mysqli_query($conexao, $sql)) {
+
         if (mysqli_affected_rows($conexao)) {
             $status = true;
         }
+
         fecharConexaoMyslq($conexao);
         return $status;
+  
+        
     }
+
+    return $status;
+  
+  
 }
 
 function selectbyIdCategorias($id)
