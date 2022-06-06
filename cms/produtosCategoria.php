@@ -116,7 +116,7 @@ if (session_status()) {
 
 
                             ?>
-                            <option <?=$idproduto==$itemproduto['id']?'selected':null?> value="<?=$itemproduto['id']?>" ><?=$itemproduto['Nome']?></option>
+                            <option <?=$idproduto==$itemproduto['id']?'selected':null?> value="<?=$itemproduto['id']?>" > <?=$itemproduto['id']?> <?=$itemproduto['Nome']?></option>
                             <?php
                             }
                             ?>
@@ -140,7 +140,7 @@ if (session_status()) {
                             
                             ?>
 
-                            <option  <?=$idcategoria==$item['id']?'selected':null?> value="<?=$item['id']?>"><?=$item['Categoria']?></option>
+                            <option  <?=$idcategoria==$item['id']?'selected':null?> value="<?=$item['id']?>"> <?=$item['id']?> <?=$item['Categoria']?> </option>
 
                             <?php
                             }
